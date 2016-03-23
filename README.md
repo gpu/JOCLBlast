@@ -1,2 +1,8 @@
 # JOCLBlast
-JOCLBlast - Java bindings for CLBlast
+
+JOCLBlast - Java Bindings for CLBlast - http://jocl.org
+
+**Under construction!**
+
+
+   
