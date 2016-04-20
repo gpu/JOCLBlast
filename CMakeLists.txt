@@ -92,3 +92,8 @@ target_link_libraries(
   JOCLBlast_${JOCL_BLAST_VERSION}-${JOCL_HOST}-${JOCL_ARCH} 
   ${CLBlast_LIBRARY}
   JOCLCommon)
+
+#############################################################################
+# Enable C++11 features
+set_property(TARGET JOCLBlast_${JOCL_BLAST_VERSION}-${JOCL_HOST}-${JOCL_ARCH} PROPERTY CXX_STANDARD 11)
+
