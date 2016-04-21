@@ -140,6 +140,242 @@ public class CLBlast
     // =================================================================================================
     // BLAS level-1 (vector-vector) routines
     // =================================================================================================
+    // Generate givens plane rotation: SROTG/DROTG
+    public static int CLBlastSrotg(
+        cl_mem sa_buffer, 
+        long sa_offset, 
+        cl_mem sb_buffer, 
+        long sb_offset, 
+        cl_mem sc_buffer, 
+        long sc_offset, 
+        cl_mem ss_buffer, 
+        long ss_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSrotgNative(sa_buffer, sa_offset, sb_buffer, sb_offset, sc_buffer, sc_offset, ss_buffer, ss_offset, queue, event));
+    }
+    private static native int CLBlastSrotgNative(
+        cl_mem sa_buffer, 
+        long sa_offset, 
+        cl_mem sb_buffer, 
+        long sb_offset, 
+        cl_mem sc_buffer, 
+        long sc_offset, 
+        cl_mem ss_buffer, 
+        long ss_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDrotg(
+        cl_mem sa_buffer, 
+        long sa_offset, 
+        cl_mem sb_buffer, 
+        long sb_offset, 
+        cl_mem sc_buffer, 
+        long sc_offset, 
+        cl_mem ss_buffer, 
+        long ss_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDrotgNative(sa_buffer, sa_offset, sb_buffer, sb_offset, sc_buffer, sc_offset, ss_buffer, ss_offset, queue, event));
+    }
+    private static native int CLBlastDrotgNative(
+        cl_mem sa_buffer, 
+        long sa_offset, 
+        cl_mem sb_buffer, 
+        long sb_offset, 
+        cl_mem sc_buffer, 
+        long sc_offset, 
+        cl_mem ss_buffer, 
+        long ss_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Generate modified givens plane rotation: SROTMG/DROTMG
+    public static int CLBlastSrotmg(
+        cl_mem sd1_buffer, 
+        long sd1_offset, 
+        cl_mem sd2_buffer, 
+        long sd2_offset, 
+        cl_mem sx1_buffer, 
+        long sx1_offset, 
+        cl_mem sy1_buffer, 
+        long sy1_offset, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSrotmgNative(sd1_buffer, sd1_offset, sd2_buffer, sd2_offset, sx1_buffer, sx1_offset, sy1_buffer, sy1_offset, sparam_buffer, sparam_offset, queue, event));
+    }
+    private static native int CLBlastSrotmgNative(
+        cl_mem sd1_buffer, 
+        long sd1_offset, 
+        cl_mem sd2_buffer, 
+        long sd2_offset, 
+        cl_mem sx1_buffer, 
+        long sx1_offset, 
+        cl_mem sy1_buffer, 
+        long sy1_offset, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDrotmg(
+        cl_mem sd1_buffer, 
+        long sd1_offset, 
+        cl_mem sd2_buffer, 
+        long sd2_offset, 
+        cl_mem sx1_buffer, 
+        long sx1_offset, 
+        cl_mem sy1_buffer, 
+        long sy1_offset, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDrotmgNative(sd1_buffer, sd1_offset, sd2_buffer, sd2_offset, sx1_buffer, sx1_offset, sy1_buffer, sy1_offset, sparam_buffer, sparam_offset, queue, event));
+    }
+    private static native int CLBlastDrotmgNative(
+        cl_mem sd1_buffer, 
+        long sd1_offset, 
+        cl_mem sd2_buffer, 
+        long sd2_offset, 
+        cl_mem sx1_buffer, 
+        long sx1_offset, 
+        cl_mem sy1_buffer, 
+        long sy1_offset, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Apply givens plane rotation: SROT/DROT
+    public static int CLBlastSrot(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        float cos, 
+        float sin, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSrotNative(n, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, cos, sin, queue, event));
+    }
+    private static native int CLBlastSrotNative(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        float cos, 
+        float sin, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDrot(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        double cos, 
+        double sin, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDrotNative(n, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, cos, sin, queue, event));
+    }
+    private static native int CLBlastDrotNative(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        double cos, 
+        double sin, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Apply modified givens plane rotation: SROTM/DROTM
+    public static int CLBlastSrotm(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSrotmNative(n, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, sparam_buffer, sparam_offset, queue, event));
+    }
+    private static native int CLBlastSrotmNative(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDrotm(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDrotmNative(n, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, sparam_buffer, sparam_offset, queue, event));
+    }
+    private static native int CLBlastDrotmNative(
+        long n, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        cl_mem sparam_buffer, 
+        long sparam_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
     // Swap two vectors: SSWAP/DSWAP/CSWAP/ZSWAP
     public static int CLBlastSswap(
         long n, 
@@ -709,6 +945,285 @@ public class CLBlast
         cl_mem y_buffer, 
         long y_offset, 
         long y_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Euclidian norm of a vector: SNRM2/DNRM2/ScNRM2/DzNRM2
+    public static int CLBlastSnrm2(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSnrm2Native(n, nrm2_buffer, nrm2_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastSnrm2Native(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDnrm2(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDnrm2Native(n, nrm2_buffer, nrm2_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastDnrm2Native(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastScnrm2(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastScnrm2Native(n, nrm2_buffer, nrm2_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastScnrm2Native(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDznrm2(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDznrm2Native(n, nrm2_buffer, nrm2_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastDznrm2Native(
+        long n, 
+        cl_mem nrm2_buffer, 
+        long nrm2_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Absolute sum of values in a vector: SASUM/DASUM/ScASUM/DzASUM
+    public static int CLBlastSasum(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSasumNative(n, asum_buffer, asum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastSasumNative(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDasum(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDasumNative(n, asum_buffer, asum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastDasumNative(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastScasum(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastScasumNative(n, asum_buffer, asum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastScasumNative(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDzasum(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDzasumNative(n, asum_buffer, asum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastDzasumNative(
+        long n, 
+        cl_mem asum_buffer, 
+        long asum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Index of absolute maxium value in a vector: iSAMAX/iDAMAX/iCAMAX/iZAMAX
+    public static int CLBlastiSamax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiSamaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiSamaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiDamax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiDamaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiDamaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiCamax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiCamaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiCamaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiZamax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiZamaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiZamaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
         cl_command_queue queue, 
         cl_event event);
 
