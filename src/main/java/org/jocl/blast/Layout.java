@@ -31,8 +31,8 @@ package org.jocl.blast;
  */
 public class Layout
 {
-    public static final int kRowMajor = 0;
-    public static final int kColMajor = 1;
+    public static final int kRowMajor = 101;
+    public static final int kColMajor = 102;
 
     /**
      * Private constructor to prevent instantiation

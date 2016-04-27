@@ -31,8 +31,8 @@ package org.jocl.blast;
  */
 public class Side
 {
-    public static final int kLeft = 0;
-    public static final int kRight = 1;
+    public static final int kLeft = 141;
+    public static final int kRight = 142;
 
     /**
      * Private constructor to prevent instantiation

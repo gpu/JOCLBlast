@@ -1,5 +1,5 @@
 /*
- * JOCLBLAS - Java bindings for clBLAS
+ * JOCLBlast - Java bindings for CLBlast
  *
  * Copyright (c) 2015-2016 Marco Hutter - http://www.jocl.org
  *
@@ -1147,6 +1147,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrsmNative
  */
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative
   (JNIEnv *, jclass, jint, jint, jint, jint, jint, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastClearCompiledProgramCacheNative
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCompiledProgramCacheNative
+  (JNIEnv *, jclass);
 
 #ifdef __cplusplus
 }

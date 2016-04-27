@@ -12712,3 +12712,18 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative(JNIEnv *en
     return jniResult;
 }
 
+// =================================================================================================
+// CLBlast stores binaries of compiled kernels into a cache in case the same kernel is used later on
+// for the same device. This cache can be cleared to free up system memory or in case of debugging.
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCompiledProgramCacheNative(JNIEnv *env, jclass cls)
+{
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastClearCompiledProgramCache()\n");
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastClearCompiledProgramCache();
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}

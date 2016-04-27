@@ -31,8 +31,8 @@ package org.jocl.blast;
  */
 public class Diagonal
 {
-    public static final int kUnit = 0;
-    public static final int kNonUnit = 1;
+    public static final int kUnit = 131;
+    public static final int kNonUnit = 132;
 
     /**
      * Private constructor to prevent instantiation

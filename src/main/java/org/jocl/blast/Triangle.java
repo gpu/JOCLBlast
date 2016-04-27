@@ -31,8 +31,8 @@ package org.jocl.blast;
  */
 public class Triangle
 {
-    public static final int kUpper = 0;
-    public static final int kLower = 1;
+    public static final int kUpper = 121;
+    public static final int kLower = 122;
 
     /**
      * Private constructor to prevent instantiation

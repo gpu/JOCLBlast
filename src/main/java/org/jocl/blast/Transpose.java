@@ -31,9 +31,9 @@ package org.jocl.blast;
  */
 public class Transpose
 {
-    public static final int kNo = 0;
-    public static final int kYes = 1;
-    public static final int kConjugate = 2;
+    public static final int kNo = 111;
+    public static final int kYes = 112;
+    public static final int kConjugate = 113;
 
     /**
      * Private constructor to prevent instantiation

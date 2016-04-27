@@ -4852,6 +4852,16 @@ public class CLBlast
         cl_event event);
 
 
+    // =================================================================================================
+    // CLBlast stores binaries of compiled kernels into a cache in case the same kernel is used later on
+    // for the same device. This cache can be cleared to free up system memory or in case of debugging.
+    public static int CLBlastClearCompiledProgramCache()
+    {
+        return checkResult(CLBlastClearCompiledProgramCacheNative());
+    }
+    private static native int CLBlastClearCompiledProgramCacheNative();
+
+
     /**
      * Private constructor to prevent instantiation
      */
