@@ -350,6 +350,38 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDzasumNative
 
 /*
  * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastSsumNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsumNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDsumNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsumNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastScsumNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastScsumNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDzsumNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDzsumNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
  * Method:    CLBlastiSamaxNative
  * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
  */
@@ -378,6 +410,38 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiCamaxNative
  * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
  */
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZamaxNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiSmaxNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSmaxNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiDmaxNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiDmaxNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiCmaxNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiCmaxNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiZmaxNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZmaxNative
   (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
 
 /*

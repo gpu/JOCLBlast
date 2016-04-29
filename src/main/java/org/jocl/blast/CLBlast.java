@@ -1135,7 +1135,100 @@ public class CLBlast
         cl_event event);
 
 
-    // Index of absolute maxium value in a vector: iSAMAX/iDAMAX/iCAMAX/iZAMAX
+    // Sum of values in a vector (non-BLAS function): SSUM/DSUM/ScSUM/DzSUM
+    public static int CLBlastSsum(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSsumNative(n, sum_buffer, sum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastSsumNative(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDsum(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDsumNative(n, sum_buffer, sum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastDsumNative(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastScsum(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastScsumNative(n, sum_buffer, sum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastScsumNative(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDzsum(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDzsumNative(n, sum_buffer, sum_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastDzsumNative(
+        long n, 
+        cl_mem sum_buffer, 
+        long sum_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Index of absolute maximum value in a vector: iSAMAX/iDAMAX/iCAMAX/iZAMAX
     public static int CLBlastiSamax(
         long n, 
         cl_mem imax_buffer, 
@@ -1218,6 +1311,99 @@ public class CLBlast
         return checkResult(CLBlastiZamaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
     }
     private static native int CLBlastiZamaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Index of maximum value in a vector (non-BLAS function): iSMAX/iDMAX/iCMAX/iZMAX
+    public static int CLBlastiSmax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiSmaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiSmaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiDmax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiDmaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiDmaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiCmax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiCmaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiCmaxNative(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiZmax(
+        long n, 
+        cl_mem imax_buffer, 
+        long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiZmaxNative(n, imax_buffer, imax_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiZmaxNative(
         long n, 
         cl_mem imax_buffer, 
         long imax_offset, 
@@ -4855,11 +5041,11 @@ public class CLBlast
     // =================================================================================================
     // CLBlast stores binaries of compiled kernels into a cache in case the same kernel is used later on
     // for the same device. This cache can be cleared to free up system memory or in case of debugging.
-    public static int ClearCache()
+    public static int CLBlastClearCache()
     {
-        return checkResult(ClearCacheNative());
+        return checkResult(CLBlastClearCacheNative());
     }
-    private static native int ClearCacheNative();
+    private static native int CLBlastClearCacheNative();
 
 
     /**
