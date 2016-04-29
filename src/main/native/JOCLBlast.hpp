@@ -1150,10 +1150,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative
 
 /*
  * Class:     org_jocl_blast_CLBlast
- * Method:    CLBlastClearCompiledProgramCacheNative
+ * Method:    CLBlastClearCacheNative
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCompiledProgramCacheNative
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCacheNative
   (JNIEnv *, jclass);
 
 #ifdef __cplusplus
