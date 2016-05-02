@@ -446,6 +446,38 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZmaxNative
 
 /*
  * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiSminNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSminNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiDminNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiDminNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiCminNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiCminNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastiZminNative
+ * Signature: (JLorg/jocl/cl_mem;JLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZminNative
+  (JNIEnv *, jclass, jlong, jobject, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
  * Method:    CLBlastSgemvNative
  * Signature: (IIJJFLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJFLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
  */
@@ -1219,6 +1251,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative
  */
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCacheNative
   (JNIEnv *, jclass);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastFillCacheNative
+ * Signature: (Lorg/jocl/cl_device_id;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastFillCacheNative
+  (JNIEnv *, jclass, jobject);
 
 #ifdef __cplusplus
 }

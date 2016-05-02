@@ -3698,6 +3698,271 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZmaxNative(JNIEnv *en
     return jniResult;
 }
 
+// Index of minimum value in a vector (non-BLAS function): iSMIN/iDMIN/iCMIN/iZMIN
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSminNative(JNIEnv *env, jclass cls, jlong n, jobject imin_buffer, jlong imin_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    if (imin_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'imin_buffer' is null for CLBlastiSmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // imin_offset is primitive
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastiSmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastiSmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastiSmin(n=%ld, imin_buffer=%p, imin_offset=%ld, x_buffer=%p, x_offset=%ld, x_inc=%ld, queue=%p, event=%p)\n",
+        n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    cl_mem imin_buffer_native = nullptr;
+    size_t imin_offset_native = 0;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    if (!initNative(env, imin_buffer, imin_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    imin_offset_native = (size_t)imin_offset;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastiSmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    // imin_buffer is a read-only native pointer
+    // imin_offset is primitive
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiDminNative(JNIEnv *env, jclass cls, jlong n, jobject imin_buffer, jlong imin_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    if (imin_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'imin_buffer' is null for CLBlastiDmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // imin_offset is primitive
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastiDmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastiDmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastiDmin(n=%ld, imin_buffer=%p, imin_offset=%ld, x_buffer=%p, x_offset=%ld, x_inc=%ld, queue=%p, event=%p)\n",
+        n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    cl_mem imin_buffer_native = nullptr;
+    size_t imin_offset_native = 0;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    if (!initNative(env, imin_buffer, imin_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    imin_offset_native = (size_t)imin_offset;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastiDmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    // imin_buffer is a read-only native pointer
+    // imin_offset is primitive
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiCminNative(JNIEnv *env, jclass cls, jlong n, jobject imin_buffer, jlong imin_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    if (imin_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'imin_buffer' is null for CLBlastiCmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // imin_offset is primitive
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastiCmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastiCmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastiCmin(n=%ld, imin_buffer=%p, imin_offset=%ld, x_buffer=%p, x_offset=%ld, x_inc=%ld, queue=%p, event=%p)\n",
+        n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    cl_mem imin_buffer_native = nullptr;
+    size_t imin_offset_native = 0;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    if (!initNative(env, imin_buffer, imin_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    imin_offset_native = (size_t)imin_offset;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastiCmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    // imin_buffer is a read-only native pointer
+    // imin_offset is primitive
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZminNative(JNIEnv *env, jclass cls, jlong n, jobject imin_buffer, jlong imin_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    if (imin_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'imin_buffer' is null for CLBlastiZmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // imin_offset is primitive
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastiZmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastiZmin");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastiZmin(n=%ld, imin_buffer=%p, imin_offset=%ld, x_buffer=%p, x_offset=%ld, x_inc=%ld, queue=%p, event=%p)\n",
+        n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    cl_mem imin_buffer_native = nullptr;
+    size_t imin_offset_native = 0;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    if (!initNative(env, imin_buffer, imin_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    imin_offset_native = (size_t)imin_offset;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastiZmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    // imin_buffer is a read-only native pointer
+    // imin_offset is primitive
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
 // =================================================================================================
 // BLAS level-2 (matrix-vector) routines
 // =================================================================================================
@@ -13257,3 +13522,36 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCacheNative(JNIEn
     jint jniResult = (jint)jniResult_native;
     return jniResult;
 }
+
+// The cache can also be pre-initialized for a specific device with all possible CLBLast kernels.
+// Further CLBlast routine calls will then run at maximum speed.
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastFillCacheNative(JNIEnv *env, jclass cls, jobject device)
+{
+    // Null-checks for non-primitive arguments
+    if (device == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'device' is null for CLBlastFillCache");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastFillCache(device=%p)\n",
+        device);
+
+    // Native variable declarations
+    cl_device_id device_native = nullptr;
+
+    // Obtain native variable values
+    if (!initNative(env, device, device_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastFillCache(device_native);
+
+    // Write back native variable values
+    // device is a read-only native pointer
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+

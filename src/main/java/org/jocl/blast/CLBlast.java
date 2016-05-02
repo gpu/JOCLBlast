@@ -30,6 +30,7 @@ import org.jocl.CL;
 import org.jocl.CLException;
 import org.jocl.LibUtils;
 import org.jocl.cl_command_queue;
+import org.jocl.cl_device_id;
 import org.jocl.cl_event;
 import org.jocl.cl_mem;
 import org.jocl.CL.LogLevel;
@@ -1407,6 +1408,99 @@ public class CLBlast
         long n, 
         cl_mem imax_buffer, 
         long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Index of minimum value in a vector (non-BLAS function): iSMIN/iDMIN/iCMIN/iZMIN
+    public static int CLBlastiSmin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiSminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiSminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiDmin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiDminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiDminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiCmin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiCminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiCminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiZmin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiZminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiZminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
         cl_mem x_buffer, 
         long x_offset, 
         long x_inc, 
@@ -5046,6 +5140,17 @@ public class CLBlast
         return checkResult(CLBlastClearCacheNative());
     }
     private static native int CLBlastClearCacheNative();
+
+
+    // The cache can also be pre-initialized for a specific device with all possible CLBLast kernels.
+    // Further CLBlast routine calls will then run at maximum speed.
+    public static int CLBlastFillCache(
+        cl_device_id device)
+    {
+        return checkResult(CLBlastFillCacheNative(device));
+    }
+    private static native int CLBlastFillCacheNative(
+        cl_device_id device);
 
 
     /**
