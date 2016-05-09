@@ -33,7 +33,7 @@ find_path(CLBLAST_INSTALL_DIR
 # Set the variables that are later used to build the name of the native 
 # library, e.g. "JOCL-0_2_0-windows-x86_64.dll"
 
-set(JOCL_BLAST_VERSION "0_0_1")
+set(JOCL_BLAST_VERSION "0_7_0")
 
 if(CMAKE_HOST_WIN32)
   set(JOCL_HOST "windows")

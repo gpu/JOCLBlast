@@ -42,6 +42,99 @@
         <url>git@github.com:gpu/JOCLBlast.git</url>
     </scm>
 
+    <!--
+      Define properties that are required for naming and identifying the
+      native libraries, based on the operating system and architecture:
+
+          jocl.os     : The short name for the operating system
+          jocl.arch   : The architecture of the target platform
+          jocl.ext    : The extension of the native libraries
+          jocl.prefix : The prefix of the native libraries
+
+      The native libraries will be named according to
+          LibraryName-${jocl.os}-${jocl.arch}.${jocl.ext}
+      e.g.
+          joclDriver-windows-x86_64.dll
+    -->
+
+    <profiles>
+        <profile>
+            <id>windows-x86_64</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <properties>
+                <jocl.os>windows</jocl.os>
+                <jocl.arch>x86_64</jocl.arch>
+                <jocl.ext>dll</jocl.ext>
+                <jocl.prefix></jocl.prefix>
+            </properties>
+        </profile>
+        <profile>
+            <id>windows-x86</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                    <arch>x86</arch>
+                </os>
+            </activation>
+            <properties>
+                <jocl.os>windows</jocl.os>
+                <jocl.arch>x86</jocl.arch>
+                <jocl.ext>dll</jocl.ext>
+                <jocl.prefix></jocl.prefix>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux-x86_64</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <properties>
+                <jocl.os>linux</jocl.os>
+                <jocl.arch>x86_64</jocl.arch>
+                <jocl.ext>so</jocl.ext>
+                <jocl.prefix>lib</jocl.prefix>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux-x86</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>x86</arch>
+                </os>
+            </activation>
+            <properties>
+                <jocl.os>linux</jocl.os>
+                <jocl.arch>x86</jocl.arch>
+                <jocl.ext>so</jocl.ext>
+                <jocl.prefix>lib</jocl.prefix>
+            </properties>
+        </profile>
+        <profile>
+            <id>apple-x86_64</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                    <arch>x86_64</arch>
+                </os>
+            </activation>
+            <properties>
+                <jocl.os>apple</jocl.os>
+                <jocl.arch>x86_64</jocl.arch>
+                <jocl.ext>dylib</jocl.ext>
+                <jocl.prefix>lib</jocl.prefix>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <defaultGoal>package</defaultGoal>
 
@@ -134,12 +227,13 @@
                 <version>2.18.1</version>
                 <configuration>
                     <forkMode>once</forkMode>
-                    <argLine>-Djava.library.path=${project.basedir}/nativeLibraries</argLine>
+                    <argLine>-Djava.library.path=${project.basedir}/nativeLibraries${path.separator}${project.basedir}/nativeLibraries/${jocl.os}/${jocl.arch}/</argLine>
                 </configuration>
             </plugin>
 
         </plugins>
     </build>
+
 
     <dependencies>
         <dependency>
@@ -151,7 +245,7 @@
         <dependency>
         	<groupId>org.jocl</groupId>
         	<artifactId>jocl</artifactId>
-        	<version>0.2.0-RC01-SNAPSHOT</version>
+        	<version>2.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
