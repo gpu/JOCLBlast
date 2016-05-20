@@ -43,7 +43,7 @@ public class CLBlast
     // Initialization of the native library
     static
     {
-        String versionString = "0_7_0";
+        String versionString = "0_7_1";
         String libraryBaseName = "JOCLBlast_" + versionString;
         String libraryName = 
             LibUtils.createPlatformLibraryName(libraryBaseName);
