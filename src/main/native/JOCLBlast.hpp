@@ -1246,6 +1246,38 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative
 
 /*
  * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastSomatcopyNative
+ * Signature: (IIJJFLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSomatcopyNative
+  (JNIEnv *, jclass, jint, jint, jlong, jlong, jfloat, jobject, jlong, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDomatcopyNative
+ * Signature: (IIJJDLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDomatcopyNative
+  (JNIEnv *, jclass, jint, jint, jlong, jlong, jdouble, jobject, jlong, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastComatcopyNative
+ * Signature: (IIJJ[FLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastComatcopyNative
+  (JNIEnv *, jclass, jint, jint, jlong, jlong, jfloatArray, jobject, jlong, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastZomatcopyNative
+ * Signature: (IIJJ[DLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZomatcopyNative
+  (JNIEnv *, jclass, jint, jint, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
  * Method:    CLBlastClearCacheNative
  * Signature: ()I
  */

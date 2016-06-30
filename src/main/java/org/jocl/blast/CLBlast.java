@@ -43,7 +43,7 @@ public class CLBlast
     // Initialization of the native library
     static
     {
-        String versionString = "0_7_1";
+        String versionString = "0_8_0";
         String libraryBaseName = "JOCLBlast_" + versionString;
         String libraryName = 
             LibUtils.createPlatformLibraryName(libraryBaseName);
@@ -378,7 +378,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Swap two vectors: SSWAP/DSWAP/CSWAP/ZSWAP
+    // Swap two vectors: SSWAP/DSWAP/CSWAP/ZSWAP/HSWAP
     public static int CLBlastSswap(
         long n, 
         cl_mem x_buffer, 
@@ -479,7 +479,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Vector scaling: SSCAL/DSCAL/CSCAL/ZSCAL
+    // Vector scaling: SSCAL/DSCAL/CSCAL/ZSCAL/HSCAL
     public static int CLBlastSscal(
         long n, 
         float alpha, 
@@ -564,7 +564,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Vector copy: SCOPY/DCOPY/CCOPY/ZCOPY
+    // Vector copy: SCOPY/DCOPY/CCOPY/ZCOPY/HCOPY
     public static int CLBlastScopy(
         long n, 
         cl_mem x_buffer, 
@@ -665,7 +665,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Vector-times-constant plus vector: SAXPY/DAXPY/CAXPY/ZAXPY
+    // Vector-times-constant plus vector: SAXPY/DAXPY/CAXPY/ZAXPY/HAXPY
     public static int CLBlastSaxpy(
         long n, 
         float alpha, 
@@ -774,7 +774,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Dot product of two vectors: SDOT/DDOT
+    // Dot product of two vectors: SDOT/DDOT/HDOT
     public static int CLBlastSdot(
         long n, 
         cl_mem dot_buffer, 
@@ -951,7 +951,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Euclidian norm of a vector: SNRM2/DNRM2/ScNRM2/DzNRM2
+    // Euclidian norm of a vector: SNRM2/DNRM2/ScNRM2/DzNRM2/HNRM2
     public static int CLBlastSnrm2(
         long n, 
         cl_mem nrm2_buffer, 
@@ -1044,7 +1044,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Absolute sum of values in a vector: SASUM/DASUM/ScASUM/DzASUM
+    // Absolute sum of values in a vector: SASUM/DASUM/ScASUM/DzASUM/HASUM
     public static int CLBlastSasum(
         long n, 
         cl_mem asum_buffer, 
@@ -1137,7 +1137,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Sum of values in a vector (non-BLAS function): SSUM/DSUM/ScSUM/DzSUM
+    // Sum of values in a vector (non-BLAS function): SSUM/DSUM/ScSUM/DzSUM/HSUM
     public static int CLBlastSsum(
         long n, 
         cl_mem sum_buffer, 
@@ -1230,7 +1230,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Index of absolute maximum value in a vector: iSAMAX/iDAMAX/iCAMAX/iZAMAX
+    // Index of absolute maximum value in a vector: iSAMAX/iDAMAX/iCAMAX/iZAMAX/iHAMAX
     public static int CLBlastiSamax(
         long n, 
         cl_mem imax_buffer, 
@@ -1323,7 +1323,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Index of maximum value in a vector (non-BLAS function): iSMAX/iDMAX/iCMAX/iZMAX
+    // Index of maximum value in a vector (non-BLAS function): iSMAX/iDMAX/iCMAX/iZMAX/iHMAX
     public static int CLBlastiSmax(
         long n, 
         cl_mem imax_buffer, 
@@ -1416,7 +1416,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Index of minimum value in a vector (non-BLAS function): iSMIN/iDMIN/iCMIN/iZMIN
+    // Index of minimum value in a vector (non-BLAS function): iSMIN/iDMIN/iCMIN/iZMIN/iHMIN
     public static int CLBlastiSmin(
         long n, 
         cl_mem imin_buffer, 
@@ -1512,7 +1512,7 @@ public class CLBlast
     // =================================================================================================
     // BLAS level-2 (matrix-vector) routines
     // =================================================================================================
-    // General matrix-vector multiplication: SGEMV/DGEMV/CGEMV/ZGEMV
+    // General matrix-vector multiplication: SGEMV/DGEMV/CGEMV/ZGEMV/HGEMV
     public static int CLBlastSgemv(
         int layout, 
         int a_transpose, 
@@ -1677,7 +1677,7 @@ public class CLBlast
         cl_event event);
 
 
-    // General banded matrix-vector multiplication: SGBMV/DGBMV/CGBMV/ZGBMV
+    // General banded matrix-vector multiplication: SGBMV/DGBMV/CGBMV/ZGBMV/HGBMV
     public static int CLBlastSgbmv(
         int layout, 
         int a_transpose, 
@@ -2095,7 +2095,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric matrix-vector multiplication: SSYMV/DSYMV
+    // Symmetric matrix-vector multiplication: SSYMV/DSYMV/HSYMV
     public static int CLBlastSsymv(
         int layout, 
         int triangle, 
@@ -2174,7 +2174,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric banded matrix-vector multiplication: SSBMV/DSBMV
+    // Symmetric banded matrix-vector multiplication: SSBMV/DSBMV/HSBMV
     public static int CLBlastSsbmv(
         int layout, 
         int triangle, 
@@ -2257,7 +2257,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric packed matrix-vector multiplication: SSPMV/DSPMV
+    // Symmetric packed matrix-vector multiplication: SSPMV/DSPMV/HSPMV
     public static int CLBlastSspmv(
         int layout, 
         int triangle, 
@@ -2332,7 +2332,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Triangular matrix-vector multiplication: STRMV/DTRMV/CTRMV/ZTRMV
+    // Triangular matrix-vector multiplication: STRMV/DTRMV/CTRMV/ZTRMV/HTRMV
     public static int CLBlastStrmv(
         int layout, 
         int triangle, 
@@ -2465,7 +2465,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Triangular banded matrix-vector multiplication: STBMV/DTBMV/CTBMV/ZTBMV
+    // Triangular banded matrix-vector multiplication: STBMV/DTBMV/CTBMV/ZTBMV/HTBMV
     public static int CLBlastStbmv(
         int layout, 
         int triangle, 
@@ -2606,7 +2606,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Triangular packed matrix-vector multiplication: STPMV/DTPMV/CTPMV/ZTPMV
+    // Triangular packed matrix-vector multiplication: STPMV/DTPMV/CTPMV/ZTPMV/HTPMV
     public static int CLBlastStpmv(
         int layout, 
         int triangle, 
@@ -3130,7 +3130,7 @@ public class CLBlast
         cl_event event);
 
 
-    // General rank-1 matrix update: SGER/DGER
+    // General rank-1 matrix update: SGER/DGER/HGER
     public static int CLBlastSger(
         int layout, 
         long m, 
@@ -3623,7 +3623,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric rank-1 matrix update: SSYR/DSYR
+    // Symmetric rank-1 matrix update: SSYR/DSYR/HSYR
     public static int CLBlastSsyr(
         int layout, 
         int triangle, 
@@ -3686,7 +3686,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric packed rank-1 matrix update: SSPR/DSPR
+    // Symmetric packed rank-1 matrix update: SSPR/DSPR/HSPR
     public static int CLBlastSspr(
         int layout, 
         int triangle, 
@@ -3745,7 +3745,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric rank-2 matrix update: SSYR2/DSYR2
+    // Symmetric rank-2 matrix update: SSYR2/DSYR2/HSYR2
     public static int CLBlastSsyr2(
         int layout, 
         int triangle, 
@@ -3820,7 +3820,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric packed rank-2 matrix update: SSPR2/DSPR2
+    // Symmetric packed rank-2 matrix update: SSPR2/DSPR2/HSPR2
     public static int CLBlastSspr2(
         int layout, 
         int triangle, 
@@ -3894,7 +3894,7 @@ public class CLBlast
     // =================================================================================================
     // BLAS level-3 (matrix-matrix) routines
     // =================================================================================================
-    // General matrix-matrix multiplication: SGEMM/DGEMM/CGEMM/ZGEMM
+    // General matrix-matrix multiplication: SGEMM/DGEMM/CGEMM/ZGEMM/HGEMM
     public static int CLBlastSgemm(
         int layout, 
         int a_transpose, 
@@ -4075,7 +4075,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Symmetric matrix-matrix multiplication: SSYMM/DSYMM/CSYMM/ZSYMM
+    // Symmetric matrix-matrix multiplication: SSYMM/DSYMM/CSYMM/ZSYMM/HSYMM
     public static int CLBlastSsymm(
         int layout, 
         int side, 
@@ -4335,7 +4335,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Rank-K update of a symmetric matrix: SSYRK/DSYRK/CSYRK/ZSYRK
+    // Rank-K update of a symmetric matrix: SSYRK/DSYRK/CSYRK/ZSYRK/HSYRK
     public static int CLBlastSsyrk(
         int layout, 
         int triangle, 
@@ -4559,7 +4559,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Rank-2K update of a symmetric matrix: SSYR2K/DSYR2K/CSYR2K/ZSYR2K
+    // Rank-2K update of a symmetric matrix: SSYR2K/DSYR2K/CSYR2K/ZSYR2K/HSYR2K
     public static int CLBlastSsyr2k(
         int layout, 
         int triangle, 
@@ -4819,7 +4819,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Triangular matrix-matrix multiplication: STRMM/DTRMM/CTRMM/ZTRMM
+    // Triangular matrix-matrix multiplication: STRMM/DTRMM/CTRMM/ZTRMM/HTRMM
     public static int CLBlastStrmm(
         int layout, 
         int side, 
@@ -4976,7 +4976,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Solves a triangular system of equations: STRSM/DTRSM/CTRSM/ZTRSM
+    // Solves a triangular system of equations: STRSM/DTRSM/CTRSM/ZTRSM/HTRSM
     public static int CLBlastStrsm(
         int layout, 
         int side, 
@@ -5120,6 +5120,142 @@ public class CLBlast
         int triangle, 
         int a_transpose, 
         int diagonal, 
+        long m, 
+        long n, 
+        double[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // =================================================================================================
+    // Extra non-BLAS routines (level-X)
+    // =================================================================================================
+    // Scaling and out-place transpose/copy (non-BLAS function): SOMATCOPY/DOMATCOPY/COMATCOPY/ZOMATCOPY/HOMATCOPY
+    public static int CLBlastSomatcopy(
+        int layout, 
+        int a_transpose, 
+        long m, 
+        long n, 
+        float alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSomatcopyNative(layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event));
+    }
+    private static native int CLBlastSomatcopyNative(
+        int layout, 
+        int a_transpose, 
+        long m, 
+        long n, 
+        float alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDomatcopy(
+        int layout, 
+        int a_transpose, 
+        long m, 
+        long n, 
+        double alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDomatcopyNative(layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event));
+    }
+    private static native int CLBlastDomatcopyNative(
+        int layout, 
+        int a_transpose, 
+        long m, 
+        long n, 
+        double alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastComatcopy(
+        int layout, 
+        int a_transpose, 
+        long m, 
+        long n, 
+        float[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastComatcopyNative(layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event));
+    }
+    private static native int CLBlastComatcopyNative(
+        int layout, 
+        int a_transpose, 
+        long m, 
+        long n, 
+        float[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastZomatcopy(
+        int layout, 
+        int a_transpose, 
+        long m, 
+        long n, 
+        double[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastZomatcopyNative(layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event));
+    }
+    private static native int CLBlastZomatcopyNative(
+        int layout, 
+        int a_transpose, 
         long m, 
         long n, 
         double[] alpha, 

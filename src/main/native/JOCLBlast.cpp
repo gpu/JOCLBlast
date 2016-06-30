@@ -770,7 +770,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDrotmNative(JNIEnv *en
     return jniResult;
 }
 
-// Swap two vectors: SSWAP/DSWAP/CSWAP/ZSWAP
+// Swap two vectors: SSWAP/DSWAP/CSWAP/ZSWAP/HSWAP
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSswapNative(JNIEnv *env, jclass cls, jlong n, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -1051,7 +1051,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZswapNative(JNIEnv *en
     return jniResult;
 }
 
-// Vector scaling: SSCAL/DSCAL/CSCAL/ZSCAL
+// Vector scaling: SSCAL/DSCAL/CSCAL/ZSCAL/HSCAL
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSscalNative(JNIEnv *env, jclass cls, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -1292,7 +1292,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZscalNative(JNIEnv *en
     return jniResult;
 }
 
-// Vector copy: SCOPY/DCOPY/CCOPY/ZCOPY
+// Vector copy: SCOPY/DCOPY/CCOPY/ZCOPY/HCOPY
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastScopyNative(JNIEnv *env, jclass cls, jlong n, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -1573,7 +1573,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZcopyNative(JNIEnv *en
     return jniResult;
 }
 
-// Vector-times-constant plus vector: SAXPY/DAXPY/CAXPY/ZAXPY
+// Vector-times-constant plus vector: SAXPY/DAXPY/CAXPY/ZAXPY/HAXPY
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSaxpyNative(JNIEnv *env, jclass cls, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -1878,7 +1878,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZaxpyNative(JNIEnv *en
     return jniResult;
 }
 
-// Dot product of two vectors: SDOT/DDOT
+// Dot product of two vectors: SDOT/DDOT/HDOT
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSdotNative(JNIEnv *env, jclass cls, jlong n, jobject dot_buffer, jlong dot_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -2373,7 +2373,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZdotcNative(JNIEnv *en
     return jniResult;
 }
 
-// Euclidian norm of a vector: SNRM2/DNRM2/ScNRM2/DzNRM2
+// Euclidian norm of a vector: SNRM2/DNRM2/ScNRM2/DzNRM2/HNRM2
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSnrm2Native(JNIEnv *env, jclass cls, jlong n, jobject nrm2_buffer, jlong nrm2_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -2638,7 +2638,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDznrm2Native(JNIEnv *e
     return jniResult;
 }
 
-// Absolute sum of values in a vector: SASUM/DASUM/ScASUM/DzASUM
+// Absolute sum of values in a vector: SASUM/DASUM/ScASUM/DzASUM/HASUM
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSasumNative(JNIEnv *env, jclass cls, jlong n, jobject asum_buffer, jlong asum_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -2903,7 +2903,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDzasumNative(JNIEnv *e
     return jniResult;
 }
 
-// Sum of values in a vector (non-BLAS function): SSUM/DSUM/ScSUM/DzSUM
+// Sum of values in a vector (non-BLAS function): SSUM/DSUM/ScSUM/DzSUM/HSUM
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsumNative(JNIEnv *env, jclass cls, jlong n, jobject sum_buffer, jlong sum_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -3168,7 +3168,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDzsumNative(JNIEnv *en
     return jniResult;
 }
 
-// Index of absolute maximum value in a vector: iSAMAX/iDAMAX/iCAMAX/iZAMAX
+// Index of absolute maximum value in a vector: iSAMAX/iDAMAX/iCAMAX/iZAMAX/iHAMAX
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSamaxNative(JNIEnv *env, jclass cls, jlong n, jobject imax_buffer, jlong imax_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -3433,7 +3433,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZamaxNative(JNIEnv *e
     return jniResult;
 }
 
-// Index of maximum value in a vector (non-BLAS function): iSMAX/iDMAX/iCMAX/iZMAX
+// Index of maximum value in a vector (non-BLAS function): iSMAX/iDMAX/iCMAX/iZMAX/iHMAX
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSmaxNative(JNIEnv *env, jclass cls, jlong n, jobject imax_buffer, jlong imax_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -3698,7 +3698,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZmaxNative(JNIEnv *en
     return jniResult;
 }
 
-// Index of minimum value in a vector (non-BLAS function): iSMIN/iDMIN/iCMIN/iZMIN
+// Index of minimum value in a vector (non-BLAS function): iSMIN/iDMIN/iCMIN/iZMIN/iHMIN
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSminNative(JNIEnv *env, jclass cls, jlong n, jobject imin_buffer, jlong imin_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -3966,7 +3966,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZminNative(JNIEnv *en
 // =================================================================================================
 // BLAS level-2 (matrix-vector) routines
 // =================================================================================================
-// General matrix-vector multiplication: SGEMV/DGEMV/CGEMV/ZGEMV
+// General matrix-vector multiplication: SGEMV/DGEMV/CGEMV/ZGEMV/HGEMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemvNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jlong m, jlong n, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject x_buffer, jlong x_offset, jlong x_inc, jfloat beta, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -4407,7 +4407,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemvNative(JNIEnv *en
     return jniResult;
 }
 
-// General banded matrix-vector multiplication: SGBMV/DGBMV/CGBMV/ZGBMV
+// General banded matrix-vector multiplication: SGBMV/DGBMV/CGBMV/ZGBMV/HGBMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgbmvNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jlong m, jlong n, jlong kl, jlong ku, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject x_buffer, jlong x_offset, jlong x_inc, jfloat beta, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -5543,7 +5543,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpmvNative(JNIEnv *en
     return jniResult;
 }
 
-// Symmetric matrix-vector multiplication: SSYMV/DSYMV
+// Symmetric matrix-vector multiplication: SSYMV/DSYMV/HSYMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymvNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jlong n, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject x_buffer, jlong x_offset, jlong x_inc, jfloat beta, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -5748,7 +5748,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsymvNative(JNIEnv *en
     return jniResult;
 }
 
-// Symmetric banded matrix-vector multiplication: SSBMV/DSBMV
+// Symmetric banded matrix-vector multiplication: SSBMV/DSBMV/HSBMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsbmvNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jlong n, jlong k, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject x_buffer, jlong x_offset, jlong x_inc, jfloat beta, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -5961,7 +5961,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsbmvNative(JNIEnv *en
     return jniResult;
 }
 
-// Symmetric packed matrix-vector multiplication: SSPMV/DSPMV
+// Symmetric packed matrix-vector multiplication: SSPMV/DSPMV/HSPMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspmvNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jlong n, jfloat alpha, jobject ap_buffer, jlong ap_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jfloat beta, jobject y_buffer, jlong y_offset, jlong y_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -6158,7 +6158,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspmvNative(JNIEnv *en
     return jniResult;
 }
 
-// Triangular matrix-vector multiplication: STRMV/DTRMV/CTRMV/ZTRMV
+// Triangular matrix-vector multiplication: STRMV/DTRMV/CTRMV/ZTRMV/HTRMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmvNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jint a_transpose, jint diagonal, jlong n, jobject a_buffer, jlong a_offset, jlong a_ld, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -6503,7 +6503,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmvNative(JNIEnv *en
     return jniResult;
 }
 
-// Triangular banded matrix-vector multiplication: STBMV/DTBMV/CTBMV/ZTBMV
+// Triangular banded matrix-vector multiplication: STBMV/DTBMV/CTBMV/ZTBMV/HTBMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStbmvNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jint a_transpose, jint diagonal, jlong n, jlong k, jobject a_buffer, jlong a_offset, jlong a_ld, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -6864,7 +6864,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtbmvNative(JNIEnv *en
     return jniResult;
 }
 
-// Triangular packed matrix-vector multiplication: STPMV/DTPMV/CTPMV/ZTPMV
+// Triangular packed matrix-vector multiplication: STPMV/DTPMV/CTPMV/ZTPMV/HTPMV
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStpmvNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jint a_transpose, jint diagonal, jlong n, jobject ap_buffer, jlong ap_offset, jobject x_buffer, jlong x_offset, jlong x_inc, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -8228,7 +8228,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtpsvNative(JNIEnv *en
     return jniResult;
 }
 
-// General rank-1 matrix update: SGER/DGER
+// General rank-1 matrix update: SGER/DGER/HGER
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgerNative(JNIEnv *env, jclass cls, jint layout, jlong m, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jobject a_buffer, jlong a_offset, jlong a_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -9559,7 +9559,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpr2Native(JNIEnv *en
     return jniResult;
 }
 
-// Symmetric rank-1 matrix update: SSYR/DSYR
+// Symmetric rank-1 matrix update: SSYR/DSYR/HSYR
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject a_buffer, jlong a_offset, jlong a_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -9724,7 +9724,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyrNative(JNIEnv *env
     return jniResult;
 }
 
-// Symmetric packed rank-1 matrix update: SSPR/DSPR
+// Symmetric packed rank-1 matrix update: SSPR/DSPR/HSPR
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsprNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject ap_buffer, jlong ap_offset, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -9881,7 +9881,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsprNative(JNIEnv *env
     return jniResult;
 }
 
-// Symmetric rank-2 matrix update: SSYR2/DSYR2
+// Symmetric rank-2 matrix update: SSYR2/DSYR2/HSYR2
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2Native(JNIEnv *env, jclass cls, jint layout, jint triangle, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jobject a_buffer, jlong a_offset, jlong a_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -10078,7 +10078,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyr2Native(JNIEnv *en
     return jniResult;
 }
 
-// Symmetric packed rank-2 matrix update: SSPR2/DSPR2
+// Symmetric packed rank-2 matrix update: SSPR2/DSPR2/HSPR2
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspr2Native(JNIEnv *env, jclass cls, jint layout, jint triangle, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jobject ap_buffer, jlong ap_offset, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -10270,7 +10270,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspr2Native(JNIEnv *en
 // =================================================================================================
 // BLAS level-3 (matrix-matrix) routines
 // =================================================================================================
-// General matrix-matrix multiplication: SGEMM/DGEMM/CGEMM/ZGEMM
+// General matrix-matrix multiplication: SGEMM/DGEMM/CGEMM/ZGEMM/HGEMM
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jfloat beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -10743,7 +10743,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmNative(JNIEnv *en
     return jniResult;
 }
 
-// Symmetric matrix-matrix multiplication: SSYMM/DSYMM/CSYMM/ZSYMM
+// Symmetric matrix-matrix multiplication: SSYMM/DSYMM/CSYMM/ZSYMM/HSYMM
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymmNative(JNIEnv *env, jclass cls, jint layout, jint side, jint triangle, jlong m, jlong n, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jfloat beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -11437,7 +11437,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhemmNative(JNIEnv *en
     return jniResult;
 }
 
-// Rank-K update of a symmetric matrix: SSYRK/DSYRK/CSYRK/ZSYRK
+// Rank-K update of a symmetric matrix: SSYRK/DSYRK/CSYRK/ZSYRK/HSYRK
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrkNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jint a_transpose, jlong n, jlong k, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jfloat beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -12019,7 +12019,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZherkNative(JNIEnv *en
     return jniResult;
 }
 
-// Rank-2K update of a symmetric matrix: SSYR2K/DSYR2K/CSYR2K/ZSYR2K
+// Rank-2K update of a symmetric matrix: SSYR2K/DSYR2K/CSYR2K/ZSYR2K/HSYR2K
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2kNative(JNIEnv *env, jclass cls, jint layout, jint triangle, jint ab_transpose, jlong n, jlong k, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jfloat beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -12705,7 +12705,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZher2kNative(JNIEnv *e
     return jniResult;
 }
 
-// Triangular matrix-matrix multiplication: STRMM/DTRMM/CTRMM/ZTRMM
+// Triangular matrix-matrix multiplication: STRMM/DTRMM/CTRMM/ZTRMM/HTRMM
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmmNative(JNIEnv *env, jclass cls, jint layout, jint side, jint triangle, jint a_transpose, jint diagonal, jlong m, jlong n, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -13106,7 +13106,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmmNative(JNIEnv *en
     return jniResult;
 }
 
-// Solves a triangular system of equations: STRSM/DTRSM/CTRSM/ZTRSM
+// Solves a triangular system of equations: STRSM/DTRSM/CTRSM/ZTRSM/HTRSM
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrsmNative(JNIEnv *env, jclass cls, jint layout, jint side, jint triangle, jint a_transpose, jint diagonal, jlong m, jlong n, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
@@ -13490,6 +13490,362 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative(JNIEnv *en
     // triangle is primitive
     // a_transpose is primitive
     // diagonal is primitive
+    // m is primitive
+    // n is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+// =================================================================================================
+// Extra non-BLAS routines (level-X)
+// =================================================================================================
+// Scaling and out-place transpose/copy (non-BLAS function): SOMATCOPY/DOMATCOPY/COMATCOPY/ZOMATCOPY/HOMATCOPY
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSomatcopyNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jlong m, jlong n, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // alpha is primitive
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastSomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastSomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastSomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastSomatcopy(layout=%d, a_transpose=%d, m=%ld, n=%ld, alpha=%f, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
+
+    // Native variable declarations
+    Layout layout_native;
+    Transpose a_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    float alpha_native = 0.0f;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (Layout)layout;
+    a_transpose_native = (Transpose)a_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    alpha_native = (float)alpha;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastSomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // alpha is primitive
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDomatcopyNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jlong m, jlong n, jdouble alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // alpha is primitive
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastDomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastDomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastDomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastDomatcopy(layout=%d, a_transpose=%d, m=%ld, n=%ld, alpha=%lf, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
+
+    // Native variable declarations
+    Layout layout_native;
+    Transpose a_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    double alpha_native = 0.0;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (Layout)layout;
+    a_transpose_native = (Transpose)a_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    alpha_native = (double)alpha;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastDomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // alpha is primitive
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastComatcopyNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jlong m, jlong n, jfloatArray alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // m is primitive
+    // n is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastComatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastComatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastComatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastComatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastComatcopy(layout=%d, a_transpose=%d, m=%ld, n=%ld, alpha=%p, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
+
+    // Native variable declarations
+    Layout layout_native;
+    Transpose a_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    cl_float2 alpha_native;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (Layout)layout;
+    a_transpose_native = (Transpose)a_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastComatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // m is primitive
+    // n is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZomatcopyNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jlong m, jlong n, jdoubleArray alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // m is primitive
+    // n is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastZomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastZomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastZomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastZomatcopy");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastZomatcopy(layout=%d, a_transpose=%d, m=%ld, n=%ld, alpha=%p, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
+
+    // Native variable declarations
+    Layout layout_native;
+    Transpose a_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    cl_double2 alpha_native;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (Layout)layout;
+    a_transpose_native = (Transpose)a_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    StatusCode jniResult_native = CLBlastZomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
     // m is primitive
     // n is primitive
     if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
