@@ -11,6 +11,12 @@ set(CMAKE_USER_MAKE_RULES_OVERRIDE_CXX
    
 project(JOCLBlast)
 
+#############################################################################
+# Set the variables that are later used to build the name of the native 
+# library, e.g. "JOCL-0_2_0-windows-x86_64.dll"
+
+set(JOCL_BLAST_VERSION "0_9_0")
+
 
 #############################################################################
 # Add the dependencies to JNI and the JOCLCommon project
@@ -27,13 +33,6 @@ find_path(CLBLAST_INSTALL_DIR
   NAMES include lib
   DOC "CLBlast installation directory"
 )
-
-
-#############################################################################
-# Set the variables that are later used to build the name of the native 
-# library, e.g. "JOCL-0_2_0-windows-x86_64.dll"
-
-set(JOCL_BLAST_VERSION "0_8_0")
 
 if(CMAKE_HOST_WIN32)
   set(JOCL_HOST "windows")
