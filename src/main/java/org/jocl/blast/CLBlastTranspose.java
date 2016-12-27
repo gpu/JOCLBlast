@@ -27,17 +27,18 @@
 package org.jocl.blast;
 
 /**
- * Triangular matrix types
+ * Matrix transpose types
  */
-public class Triangle
+public class CLBlastTranspose
 {
-    public static final int kUpper = 121;
-    public static final int kLower = 122;
+    public static final int CLBlastTransposeNo = 111;
+    public static final int CLBlastTransposeYes = 112;
+    public static final int CLBlastTransposeConjugate = 113;
 
     /**
      * Private constructor to prevent instantiation
      */
-    private Triangle()
+    private CLBlastTranspose()
     {
         // Private constructor to prevent instantiation
     }
@@ -51,10 +52,11 @@ public class Triangle
     {
         switch (n)
         {
-            case kUpper: return "kUpper";
-            case kLower: return "kLower";
+            case CLBlastTransposeNo: return "CLBlastTransposeNo";
+            case CLBlastTransposeYes: return "CLBlastTransposeYes";
+            case CLBlastTransposeConjugate: return "CLBlastTransposeConjugate";
         }
-        return "INVALID Triangle: "+n;
+        return "INVALID CLBlastTranspose: "+n;
     }
 }
 

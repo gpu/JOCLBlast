@@ -26,21 +26,15 @@
  */
 package org.jocl.blast;
 
-/**
- * Precision scoped enum (values in bits)
- */
-public class Precision
+public class CLBlastTriangle
 {
-    public static final int kHalf = 16;
-    public static final int kSingle = 32;
-    public static final int kDouble = 64;
-    public static final int kComplexSingle = 3232;
-    public static final int kComplexDouble = 6464;
+    public static final int CLBlastTriangleUpper = 121;
+    public static final int CLBlastTriangleLower = 122;
 
     /**
      * Private constructor to prevent instantiation
      */
-    private Precision()
+    private CLBlastTriangle()
     {
         // Private constructor to prevent instantiation
     }
@@ -54,13 +48,10 @@ public class Precision
     {
         switch (n)
         {
-            case kHalf: return "kHalf";
-            case kSingle: return "kSingle";
-            case kDouble: return "kDouble";
-            case kComplexSingle: return "kComplexSingle";
-            case kComplexDouble: return "kComplexDouble";
+            case CLBlastTriangleUpper: return "CLBlastTriangleUpper";
+            case CLBlastTriangleLower: return "CLBlastTriangleLower";
         }
-        return "INVALID Precision: "+n;
+        return "INVALID CLBlastTriangle: "+n;
     }
 }
 

@@ -27,17 +27,17 @@
 package org.jocl.blast;
 
 /**
- * Matrix operation sides
+ * Matrix layout and transpose types
  */
-public class Side
+public class CLBlastLayout
 {
-    public static final int kLeft = 141;
-    public static final int kRight = 142;
+    public static final int CLBlastLayoutRowMajor = 101;
+    public static final int CLBlastLayoutColMajor = 102;
 
     /**
      * Private constructor to prevent instantiation
      */
-    private Side()
+    private CLBlastLayout()
     {
         // Private constructor to prevent instantiation
     }
@@ -51,10 +51,10 @@ public class Side
     {
         switch (n)
         {
-            case kLeft: return "kLeft";
-            case kRight: return "kRight";
+            case CLBlastLayoutRowMajor: return "CLBlastLayoutRowMajor";
+            case CLBlastLayoutColMajor: return "CLBlastLayoutColMajor";
         }
-        return "INVALID Side: "+n;
+        return "INVALID CLBlastLayout: "+n;
     }
 }
 

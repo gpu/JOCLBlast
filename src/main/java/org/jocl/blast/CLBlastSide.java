@@ -27,18 +27,17 @@
 package org.jocl.blast;
 
 /**
- * Matrix transpose types
+ * Matrix operation sides
  */
-public class Transpose
+public class CLBlastSide
 {
-    public static final int kNo = 111;
-    public static final int kYes = 112;
-    public static final int kConjugate = 113;
+    public static final int CLBlastSideLeft = 141;
+    public static final int CLBlastSideRight = 142;
 
     /**
      * Private constructor to prevent instantiation
      */
-    private Transpose()
+    private CLBlastSide()
     {
         // Private constructor to prevent instantiation
     }
@@ -52,11 +51,10 @@ public class Transpose
     {
         switch (n)
         {
-            case kNo: return "kNo";
-            case kYes: return "kYes";
-            case kConjugate: return "kConjugate";
+            case CLBlastSideLeft: return "CLBlastSideLeft";
+            case CLBlastSideRight: return "CLBlastSideRight";
         }
-        return "INVALID Transpose: "+n;
+        return "INVALID CLBlastSide: "+n;
     }
 }
 

@@ -158,7 +158,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSrotgNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSrotg(sa_buffer_native, sa_offset_native, sb_buffer_native, sb_offset_native, sc_buffer_native, sc_offset_native, ss_buffer_native, ss_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSrotg(sa_buffer_native, sa_offset_native, sb_buffer_native, sb_offset_native, sc_buffer_native, sc_offset_native, ss_buffer_native, ss_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // sa_buffer is a read-only native pointer
@@ -240,7 +240,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDrotgNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDrotg(sa_buffer_native, sa_offset_native, sb_buffer_native, sb_offset_native, sc_buffer_native, sc_offset_native, ss_buffer_native, ss_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDrotg(sa_buffer_native, sa_offset_native, sb_buffer_native, sb_offset_native, sc_buffer_native, sc_offset_native, ss_buffer_native, ss_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // sa_buffer is a read-only native pointer
@@ -333,7 +333,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSrotmgNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSrotmg(sd1_buffer_native, sd1_offset_native, sd2_buffer_native, sd2_offset_native, sx1_buffer_native, sx1_offset_native, sy1_buffer_native, sy1_offset_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSrotmg(sd1_buffer_native, sd1_offset_native, sd2_buffer_native, sd2_offset_native, sx1_buffer_native, sx1_offset_native, sy1_buffer_native, sy1_offset_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // sd1_buffer is a read-only native pointer
@@ -427,7 +427,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDrotmgNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDrotmg(sd1_buffer_native, sd1_offset_native, sd2_buffer_native, sd2_offset_native, sx1_buffer_native, sx1_offset_native, sy1_buffer_native, sy1_offset_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDrotmg(sd1_buffer_native, sd1_offset_native, sd2_buffer_native, sd2_offset_native, sx1_buffer_native, sx1_offset_native, sy1_buffer_native, sy1_offset_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // sd1_buffer is a read-only native pointer
@@ -507,7 +507,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSrotNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSrot(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, cos_native, sin_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSrot(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, cos_native, sin_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -585,7 +585,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDrotNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDrot(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, cos_native, sin_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDrot(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, cos_native, sin_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -668,7 +668,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSrotmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSrotm(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSrotm(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -750,7 +750,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDrotmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDrotm(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDrotm(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, sparam_buffer_native, sparam_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -823,7 +823,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSswapNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -893,7 +893,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDswapNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -963,7 +963,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCswapNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1033,7 +1033,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZswapNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZswap(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1094,7 +1094,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSscalNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1152,7 +1152,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDscalNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1214,7 +1214,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCscalNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1276,7 +1276,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZscalNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZscal(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1345,7 +1345,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastScopyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastScopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastScopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1415,7 +1415,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDcopyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDcopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDcopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1485,7 +1485,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCcopyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCcopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCcopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1555,7 +1555,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZcopyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZcopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZcopy(n_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1629,7 +1629,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSaxpyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1703,7 +1703,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDaxpyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1781,7 +1781,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCaxpyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1859,7 +1859,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZaxpyNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZaxpy(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -1941,7 +1941,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSdotNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSdot(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSdot(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2023,7 +2023,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDdotNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDdot(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDdot(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2106,7 +2106,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCdotuNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCdotu(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCdotu(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2188,7 +2188,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZdotuNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZdotu(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZdotu(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2271,7 +2271,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCdotcNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCdotc(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCdotc(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2353,7 +2353,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZdotcNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZdotc(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZdotc(n_native, dot_buffer_native, dot_offset_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2423,7 +2423,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSnrm2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSnrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSnrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2489,7 +2489,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDnrm2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDnrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDnrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2555,7 +2555,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastScnrm2Native(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastScnrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastScnrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2621,7 +2621,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDznrm2Native(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDznrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDznrm2(n_native, nrm2_buffer_native, nrm2_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2688,7 +2688,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSasumNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2754,7 +2754,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDasumNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2820,7 +2820,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastScasumNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastScasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastScasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2886,7 +2886,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDzasumNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDzasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDzasum(n_native, asum_buffer_native, asum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -2953,7 +2953,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsumNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3019,7 +3019,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsumNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3085,7 +3085,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastScsumNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastScsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastScsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3151,7 +3151,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDzsumNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDzsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDzsum(n_native, sum_buffer_native, sum_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3218,7 +3218,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSamaxNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiSamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiSamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3284,7 +3284,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiDamaxNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiDamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiDamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3350,7 +3350,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiCamaxNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiCamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiCamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3416,7 +3416,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZamaxNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiZamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiZamax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3483,7 +3483,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSmaxNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiSmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiSmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3549,7 +3549,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiDmaxNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiDmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiDmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3615,7 +3615,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiCmaxNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiCmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiCmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3681,7 +3681,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZmaxNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiZmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiZmax(n_native, imax_buffer_native, imax_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3748,7 +3748,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiSminNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiSmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiSmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3814,7 +3814,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiDminNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiDmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiDmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3880,7 +3880,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiCminNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiCmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiCmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -3946,7 +3946,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastiZminNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastiZmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastiZmin(n_native, imin_buffer_native, imin_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // n is primitive
@@ -4009,8 +4009,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemvNative(JNIEnv *en
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     float alpha_native = 0.0f;
@@ -4028,8 +4028,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
@@ -4047,7 +4047,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4115,8 +4115,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemvNative(JNIEnv *en
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     double alpha_native = 0.0;
@@ -4134,8 +4134,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
@@ -4153,7 +4153,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4229,8 +4229,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemvNative(JNIEnv *en
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -4248,8 +4248,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -4267,7 +4267,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4343,8 +4343,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemvNative(JNIEnv *en
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -4362,8 +4362,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -4381,7 +4381,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZgemv(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4452,8 +4452,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgbmvNative(JNIEnv *en
         layout, a_transpose, m, n, kl, ku, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t kl_native = 0;
@@ -4473,8 +4473,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     kl_native = (size_t)kl;
@@ -4494,7 +4494,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4566,8 +4566,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgbmvNative(JNIEnv *en
         layout, a_transpose, m, n, kl, ku, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t kl_native = 0;
@@ -4587,8 +4587,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     kl_native = (size_t)kl;
@@ -4608,7 +4608,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4688,8 +4688,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgbmvNative(JNIEnv *en
         layout, a_transpose, m, n, kl, ku, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t kl_native = 0;
@@ -4709,8 +4709,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     kl_native = (size_t)kl;
@@ -4730,7 +4730,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4810,8 +4810,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgbmvNative(JNIEnv *en
         layout, a_transpose, m, n, kl, ku, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t kl_native = 0;
@@ -4831,8 +4831,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     kl_native = (size_t)kl;
@@ -4852,7 +4852,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZgbmv(layout_native, a_transpose_native, m_native, n_native, kl_native, ku_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -4930,8 +4930,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChemvNative(JNIEnv *en
         layout, triangle, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_float2 alpha_native;
     cl_mem a_buffer_native = nullptr;
@@ -4948,8 +4948,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChemvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -4966,7 +4966,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChemvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastChemv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastChemv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5040,8 +5040,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhemvNative(JNIEnv *en
         layout, triangle, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_double2 alpha_native;
     cl_mem a_buffer_native = nullptr;
@@ -5058,8 +5058,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhemvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -5076,7 +5076,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhemvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZhemv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZhemv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5152,8 +5152,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChbmvNative(JNIEnv *en
         layout, triangle, n, k, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_float2 alpha_native;
@@ -5171,8 +5171,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -5190,7 +5190,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastChbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastChbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5266,8 +5266,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhbmvNative(JNIEnv *en
         layout, triangle, n, k, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_double2 alpha_native;
@@ -5285,8 +5285,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -5304,7 +5304,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZhbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZhbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5379,8 +5379,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChpmvNative(JNIEnv *en
         layout, triangle, n, alpha, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_float2 alpha_native;
     cl_mem ap_buffer_native = nullptr;
@@ -5396,8 +5396,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChpmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -5413,7 +5413,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChpmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastChpmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastChpmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5485,8 +5485,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpmvNative(JNIEnv *en
         layout, triangle, n, alpha, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_double2 alpha_native;
     cl_mem ap_buffer_native = nullptr;
@@ -5502,8 +5502,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -5519,7 +5519,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZhpmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZhpmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5585,8 +5585,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymvNative(JNIEnv *en
         layout, triangle, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem a_buffer_native = nullptr;
@@ -5603,8 +5603,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -5621,7 +5621,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsymv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsymv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5687,8 +5687,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsymvNative(JNIEnv *en
         layout, triangle, n, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem a_buffer_native = nullptr;
@@ -5705,8 +5705,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsymvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -5723,7 +5723,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsymvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsymv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsymv(layout_native, triangle_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5791,8 +5791,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsbmvNative(JNIEnv *en
         layout, triangle, n, k, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     size_t k_native = 0;
     float alpha_native = 0.0f;
@@ -5810,8 +5810,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (float)alpha;
@@ -5829,7 +5829,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -5897,8 +5897,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsbmvNative(JNIEnv *en
         layout, triangle, n, k, alpha, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     size_t k_native = 0;
     double alpha_native = 0.0;
@@ -5916,8 +5916,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (double)alpha;
@@ -5935,7 +5935,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsbmv(layout_native, triangle_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6002,8 +6002,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspmvNative(JNIEnv *en
         layout, triangle, n, alpha, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem ap_buffer_native = nullptr;
@@ -6019,8 +6019,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -6036,7 +6036,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSspmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSspmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6100,8 +6100,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspmvNative(JNIEnv *en
         layout, triangle, n, alpha, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, beta, y_buffer, y_offset, y_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem ap_buffer_native = nullptr;
@@ -6117,8 +6117,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -6134,7 +6134,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDspmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDspmv(layout_native, triangle_native, n_native, alpha_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, beta_native, y_buffer_native, y_offset_native, y_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6193,10 +6193,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -6208,10 +6208,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -6223,7 +6223,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6279,10 +6279,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -6294,10 +6294,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -6309,7 +6309,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6365,10 +6365,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -6380,10 +6380,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -6395,7 +6395,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6451,10 +6451,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -6466,10 +6466,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -6481,7 +6481,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtrmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6539,10 +6539,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStbmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -6555,10 +6555,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -6571,7 +6571,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6629,10 +6629,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtbmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -6645,10 +6645,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -6661,7 +6661,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6719,10 +6719,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtbmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -6735,10 +6735,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -6751,7 +6751,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6809,10 +6809,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtbmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -6825,10 +6825,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtbmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -6841,7 +6841,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtbmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtbmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6898,10 +6898,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStpmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -6912,10 +6912,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStpmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -6926,7 +6926,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStpmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -6980,10 +6980,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtpmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -6994,10 +6994,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtpmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -7008,7 +7008,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtpmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7062,10 +7062,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtpmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -7076,10 +7076,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtpmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -7090,7 +7090,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtpmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7144,10 +7144,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtpmvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -7158,10 +7158,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtpmvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -7172,7 +7172,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtpmvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtpmv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7228,10 +7228,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -7243,10 +7243,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -7258,7 +7258,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7314,10 +7314,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -7329,10 +7329,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -7344,7 +7344,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7400,10 +7400,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -7415,10 +7415,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -7430,7 +7430,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7486,10 +7486,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem a_buffer_native = nullptr;
     size_t a_offset_native = 0;
@@ -7501,10 +7501,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_offset_native = (size_t)a_offset;
@@ -7516,7 +7516,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtrsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7574,10 +7574,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStbsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -7590,10 +7590,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStbsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -7606,7 +7606,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStbsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7664,10 +7664,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtbsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -7680,10 +7680,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtbsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -7696,7 +7696,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtbsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7754,10 +7754,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtbsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -7770,10 +7770,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtbsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -7786,7 +7786,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtbsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7844,10 +7844,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtbsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, k, a_buffer, a_offset, a_ld, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_mem a_buffer_native = nullptr;
@@ -7860,10 +7860,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtbsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -7876,7 +7876,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtbsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtbsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, k_native, a_buffer_native, a_offset_native, a_ld_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -7933,10 +7933,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStpsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -7947,10 +7947,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStpsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -7961,7 +7961,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStpsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8015,10 +8015,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtpsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -8029,10 +8029,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtpsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -8043,7 +8043,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtpsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8097,10 +8097,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtpsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -8111,10 +8111,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtpsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -8125,7 +8125,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtpsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8179,10 +8179,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtpsvNative(JNIEnv *en
         layout, triangle, a_transpose, diagonal, n, ap_buffer, ap_offset, x_buffer, x_offset, x_inc, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t n_native = 0;
     cl_mem ap_buffer_native = nullptr;
     size_t ap_offset_native = 0;
@@ -8193,10 +8193,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtpsvNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     n_native = (size_t)n;
     if (!initNative(env, ap_buffer, ap_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     ap_offset_native = (size_t)ap_offset;
@@ -8207,7 +8207,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtpsvNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtpsv(layout_native, triangle_native, a_transpose_native, diagonal_native, n_native, ap_buffer_native, ap_offset_native, x_buffer_native, x_offset_native, x_inc_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8269,7 +8269,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgerNative(JNIEnv *env
         layout, m, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
+    CLBlastLayout layout_native;
     size_t m_native = 0;
     size_t n_native = 0;
     float alpha_native = 0.0f;
@@ -8286,7 +8286,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgerNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
+    layout_native = (CLBlastLayout)layout;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
@@ -8303,7 +8303,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgerNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSger(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSger(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8367,7 +8367,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgerNative(JNIEnv *env
         layout, m, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
+    CLBlastLayout layout_native;
     size_t m_native = 0;
     size_t n_native = 0;
     double alpha_native = 0.0;
@@ -8384,7 +8384,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgerNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
+    layout_native = (CLBlastLayout)layout;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
@@ -8401,7 +8401,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgerNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDger(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDger(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8470,7 +8470,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgeruNative(JNIEnv *en
         layout, m, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
+    CLBlastLayout layout_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -8487,7 +8487,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgeruNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
+    layout_native = (CLBlastLayout)layout;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -8504,7 +8504,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgeruNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCgeru(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCgeru(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8572,7 +8572,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgeruNative(JNIEnv *en
         layout, m, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
+    CLBlastLayout layout_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -8589,7 +8589,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgeruNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
+    layout_native = (CLBlastLayout)layout;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -8606,7 +8606,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgeruNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZgeru(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZgeru(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8675,7 +8675,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgercNative(JNIEnv *en
         layout, m, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
+    CLBlastLayout layout_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -8692,7 +8692,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgercNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
+    layout_native = (CLBlastLayout)layout;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -8709,7 +8709,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgercNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCgerc(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCgerc(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8777,7 +8777,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgercNative(JNIEnv *en
         layout, m, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
+    CLBlastLayout layout_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -8794,7 +8794,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgercNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
+    layout_native = (CLBlastLayout)layout;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -8811,7 +8811,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgercNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZgerc(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZgerc(layout_native, m_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8869,8 +8869,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCherNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem x_buffer_native = nullptr;
@@ -8883,8 +8883,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCherNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -8897,7 +8897,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCherNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCher(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCher(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -8951,8 +8951,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZherNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem x_buffer_native = nullptr;
@@ -8965,8 +8965,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZherNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -8979,7 +8979,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZherNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZher(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZher(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9033,8 +9033,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChprNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem x_buffer_native = nullptr;
@@ -9046,8 +9046,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChprNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9059,7 +9059,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChprNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastChpr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastChpr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9111,8 +9111,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhprNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem x_buffer_native = nullptr;
@@ -9124,8 +9124,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhprNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9137,7 +9137,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhprNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZhpr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZhpr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9202,8 +9202,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCher2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_float2 alpha_native;
     cl_mem x_buffer_native = nullptr;
@@ -9219,8 +9219,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCher2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9236,7 +9236,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCher2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCher2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCher2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9304,8 +9304,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZher2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_double2 alpha_native;
     cl_mem x_buffer_native = nullptr;
@@ -9321,8 +9321,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZher2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9338,7 +9338,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZher2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZher2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZher2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9406,8 +9406,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChpr2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_float2 alpha_native;
     cl_mem x_buffer_native = nullptr;
@@ -9422,8 +9422,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChpr2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9438,7 +9438,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChpr2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastChpr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastChpr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9504,8 +9504,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpr2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     cl_double2 alpha_native;
     cl_mem x_buffer_native = nullptr;
@@ -9520,8 +9520,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpr2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9536,7 +9536,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhpr2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZhpr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZhpr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9593,8 +9593,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem x_buffer_native = nullptr;
@@ -9607,8 +9607,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9621,7 +9621,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsyr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsyr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9675,8 +9675,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyrNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem x_buffer_native = nullptr;
@@ -9689,8 +9689,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyrNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9703,7 +9703,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyrNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsyr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsyr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9757,8 +9757,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsprNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem x_buffer_native = nullptr;
@@ -9770,8 +9770,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsprNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9783,7 +9783,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsprNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSspr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSspr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9835,8 +9835,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsprNative(JNIEnv *env
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem x_buffer_native = nullptr;
@@ -9848,8 +9848,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsprNative(JNIEnv *env
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9861,7 +9861,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsprNative(JNIEnv *env
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDspr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDspr(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -9922,8 +9922,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem x_buffer_native = nullptr;
@@ -9939,8 +9939,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -9956,7 +9956,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsyr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsyr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10020,8 +10020,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyr2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, a_buffer, a_offset, a_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem x_buffer_native = nullptr;
@@ -10037,8 +10037,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyr2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -10054,7 +10054,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyr2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsyr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsyr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, a_buffer_native, a_offset_native, a_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10118,8 +10118,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspr2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     float alpha_native = 0.0f;
     cl_mem x_buffer_native = nullptr;
@@ -10134,8 +10134,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspr2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -10150,7 +10150,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSspr2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSspr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSspr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10212,8 +10212,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspr2Native(JNIEnv *en
         layout, triangle, n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, ap_buffer, ap_offset, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
     size_t n_native = 0;
     double alpha_native = 0.0;
     cl_mem x_buffer_native = nullptr;
@@ -10228,8 +10228,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspr2Native(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -10244,7 +10244,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDspr2Native(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDspr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDspr2(layout_native, triangle_native, n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, ap_buffer_native, ap_offset_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10315,9 +10315,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmNative(JNIEnv *en
         layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
-    Transpose b_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t k_native = 0;
@@ -10336,9 +10336,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
-    b_transpose_native = (Transpose)b_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     k_native = (size_t)k;
@@ -10357,7 +10357,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10429,9 +10429,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmNative(JNIEnv *en
         layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
-    Transpose b_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t k_native = 0;
@@ -10450,9 +10450,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
-    b_transpose_native = (Transpose)b_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     k_native = (size_t)k;
@@ -10471,7 +10471,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10551,9 +10551,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmNative(JNIEnv *en
         layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
-    Transpose b_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t k_native = 0;
@@ -10572,9 +10572,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
-    b_transpose_native = (Transpose)b_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     k_native = (size_t)k;
@@ -10593,7 +10593,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10673,9 +10673,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmNative(JNIEnv *en
         layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
-    Transpose b_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     size_t k_native = 0;
@@ -10694,9 +10694,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
-    b_transpose_native = (Transpose)b_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     k_native = (size_t)k;
@@ -10715,7 +10715,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZgemm(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10787,9 +10787,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymmNative(JNIEnv *en
         layout, side, triangle, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
     size_t m_native = 0;
     size_t n_native = 0;
     float alpha_native = 0.0f;
@@ -10807,9 +10807,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
@@ -10827,7 +10827,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsymmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -10897,9 +10897,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsymmNative(JNIEnv *en
         layout, side, triangle, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
     size_t m_native = 0;
     size_t n_native = 0;
     double alpha_native = 0.0;
@@ -10917,9 +10917,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsymmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
@@ -10937,7 +10937,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsymmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11015,9 +11015,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsymmNative(JNIEnv *en
         layout, side, triangle, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -11035,9 +11035,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsymmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -11055,7 +11055,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsymmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11133,9 +11133,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsymmNative(JNIEnv *en
         layout, side, triangle, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -11153,9 +11153,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsymmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -11173,7 +11173,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsymmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZsymm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11252,9 +11252,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChemmNative(JNIEnv *en
         layout, side, triangle, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -11272,9 +11272,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChemmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -11292,7 +11292,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChemmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastChemm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastChemm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11370,9 +11370,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhemmNative(JNIEnv *en
         layout, side, triangle, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -11390,9 +11390,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhemmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -11410,7 +11410,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhemmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZhemm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZhemm(layout_native, side_native, triangle_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11474,9 +11474,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrkNative(JNIEnv *en
         layout, triangle, a_transpose, n, k, alpha, a_buffer, a_offset, a_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     float alpha_native = 0.0f;
@@ -11491,9 +11491,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrkNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (float)alpha;
@@ -11508,7 +11508,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyrkNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11568,9 +11568,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyrkNative(JNIEnv *en
         layout, triangle, a_transpose, n, k, alpha, a_buffer, a_offset, a_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     double alpha_native = 0.0;
@@ -11585,9 +11585,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyrkNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (double)alpha;
@@ -11602,7 +11602,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyrkNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11670,9 +11670,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsyrkNative(JNIEnv *en
         layout, triangle, a_transpose, n, k, alpha, a_buffer, a_offset, a_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_float2 alpha_native;
@@ -11687,9 +11687,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsyrkNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -11704,7 +11704,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsyrkNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11772,9 +11772,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsyrkNative(JNIEnv *en
         layout, triangle, a_transpose, n, k, alpha, a_buffer, a_offset, a_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_double2 alpha_native;
@@ -11789,9 +11789,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsyrkNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -11806,7 +11806,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsyrkNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZsyrk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11867,9 +11867,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCherkNative(JNIEnv *en
         layout, triangle, a_transpose, n, k, alpha, a_buffer, a_offset, a_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     float alpha_native = 0.0f;
@@ -11884,9 +11884,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCherkNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (float)alpha;
@@ -11901,7 +11901,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCherkNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCherk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCherk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -11961,9 +11961,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZherkNative(JNIEnv *en
         layout, triangle, a_transpose, n, k, alpha, a_buffer, a_offset, a_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     double alpha_native = 0.0;
@@ -11978,9 +11978,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZherkNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (double)alpha;
@@ -11995,7 +11995,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZherkNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZherk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZherk(layout_native, triangle_native, a_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12063,9 +12063,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2kNative(JNIEnv *e
         layout, triangle, ab_transpose, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose ab_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose ab_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     float alpha_native = 0.0f;
@@ -12083,9 +12083,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2kNative(JNIEnv *e
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    ab_transpose_native = (Transpose)ab_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    ab_transpose_native = (CLBlastTranspose)ab_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (float)alpha;
@@ -12103,7 +12103,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSsyr2kNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12173,9 +12173,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyr2kNative(JNIEnv *e
         layout, triangle, ab_transpose, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose ab_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose ab_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     double alpha_native = 0.0;
@@ -12193,9 +12193,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyr2kNative(JNIEnv *e
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    ab_transpose_native = (Transpose)ab_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    ab_transpose_native = (CLBlastTranspose)ab_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     alpha_native = (double)alpha;
@@ -12213,7 +12213,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDsyr2kNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12291,9 +12291,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsyr2kNative(JNIEnv *e
         layout, triangle, ab_transpose, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose ab_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose ab_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_float2 alpha_native;
@@ -12311,9 +12311,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsyr2kNative(JNIEnv *e
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    ab_transpose_native = (Transpose)ab_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    ab_transpose_native = (CLBlastTranspose)ab_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -12331,7 +12331,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCsyr2kNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12409,9 +12409,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsyr2kNative(JNIEnv *e
         layout, triangle, ab_transpose, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose ab_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose ab_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_double2 alpha_native;
@@ -12429,9 +12429,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsyr2kNative(JNIEnv *e
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    ab_transpose_native = (Transpose)ab_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    ab_transpose_native = (CLBlastTranspose)ab_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -12449,7 +12449,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZsyr2kNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZsyr2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12524,9 +12524,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCher2kNative(JNIEnv *e
         layout, triangle, ab_transpose, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose ab_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose ab_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_float2 alpha_native;
@@ -12544,9 +12544,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCher2kNative(JNIEnv *e
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    ab_transpose_native = (Transpose)ab_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    ab_transpose_native = (CLBlastTranspose)ab_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -12564,7 +12564,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCher2kNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCher2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCher2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12638,9 +12638,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZher2kNative(JNIEnv *e
         layout, triangle, ab_transpose, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Triangle triangle_native;
-    Transpose ab_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose ab_transpose_native;
     size_t n_native = 0;
     size_t k_native = 0;
     cl_double2 alpha_native;
@@ -12658,9 +12658,9 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZher2kNative(JNIEnv *e
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    triangle_native = (Triangle)triangle;
-    ab_transpose_native = (Transpose)ab_transpose;
+    layout_native = (CLBlastLayout)layout;
+    triangle_native = (CLBlastTriangle)triangle;
+    ab_transpose_native = (CLBlastTranspose)ab_transpose;
     n_native = (size_t)n;
     k_native = (size_t)k;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -12678,7 +12678,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZher2kNative(JNIEnv *e
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZher2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZher2k(layout_native, triangle_native, ab_transpose_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12743,11 +12743,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     float alpha_native = 0.0f;
@@ -12761,11 +12761,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
@@ -12779,7 +12779,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrmmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12841,11 +12841,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrmmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     double alpha_native = 0.0;
@@ -12859,11 +12859,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrmmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
@@ -12877,7 +12877,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrmmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -12943,11 +12943,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrmmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -12961,11 +12961,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrmmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -12979,7 +12979,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrmmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13045,11 +13045,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -13063,11 +13063,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -13081,7 +13081,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrmmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtrmm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13144,11 +13144,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrsmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     float alpha_native = 0.0f;
@@ -13162,11 +13162,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrsmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
@@ -13180,7 +13180,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastStrsmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastStrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastStrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13242,11 +13242,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrsmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     double alpha_native = 0.0;
@@ -13260,11 +13260,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrsmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
@@ -13278,7 +13278,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDtrsmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDtrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDtrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13344,11 +13344,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrsmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -13362,11 +13362,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrsmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -13380,7 +13380,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCtrsmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastCtrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCtrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13446,11 +13446,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative(JNIEnv *en
         layout, side, triangle, a_transpose, diagonal, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Side side_native;
-    Triangle triangle_native;
-    Transpose a_transpose_native;
-    Diagonal diagonal_native;
+    CLBlastLayout layout_native;
+    CLBlastSide side_native;
+    CLBlastTriangle triangle_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastDiagonal diagonal_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -13464,11 +13464,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative(JNIEnv *en
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    side_native = (Side)side;
-    triangle_native = (Triangle)triangle;
-    a_transpose_native = (Transpose)a_transpose;
-    diagonal_native = (Diagonal)diagonal;
+    layout_native = (CLBlastLayout)layout;
+    side_native = (CLBlastSide)side;
+    triangle_native = (CLBlastTriangle)triangle;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    diagonal_native = (CLBlastDiagonal)diagonal;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -13482,7 +13482,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative(JNIEnv *en
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZtrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZtrsm(layout_native, side_native, triangle_native, a_transpose_native, diagonal_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13545,8 +13545,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSomatcopyNative(JNIEnv
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     float alpha_native = 0.0f;
@@ -13560,8 +13560,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSomatcopyNative(JNIEnv
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (float)alpha;
@@ -13575,7 +13575,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSomatcopyNative(JNIEnv
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastSomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13631,8 +13631,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDomatcopyNative(JNIEnv
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     double alpha_native = 0.0;
@@ -13646,8 +13646,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDomatcopyNative(JNIEnv
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     alpha_native = (double)alpha;
@@ -13661,7 +13661,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDomatcopyNative(JNIEnv
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastDomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13721,8 +13721,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastComatcopyNative(JNIEnv
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_float2 alpha_native;
@@ -13736,8 +13736,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastComatcopyNative(JNIEnv
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -13751,7 +13751,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastComatcopyNative(JNIEnv
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastComatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastComatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13811,8 +13811,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZomatcopyNative(JNIEnv
         layout, a_transpose, m, n, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, queue, event);
 
     // Native variable declarations
-    Layout layout_native;
-    Transpose a_transpose_native;
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
     size_t m_native = 0;
     size_t n_native = 0;
     cl_double2 alpha_native;
@@ -13826,8 +13826,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZomatcopyNative(JNIEnv
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
-    layout_native = (Layout)layout;
-    a_transpose_native = (Transpose)a_transpose;
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
     m_native = (size_t)m;
     n_native = (size_t)n;
     if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -13841,7 +13841,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZomatcopyNative(JNIEnv
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastZomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZomatcopy(layout_native, a_transpose_native, m_native, n_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, queue_native, event_native);
 
     // Write back native variable values
     // layout is primitive
@@ -13872,7 +13872,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCacheNative(JNIEn
     Logger::log(LOG_TRACE, "Executing CLBlastClearCache()\n");
 
     // Native function call
-    StatusCode jniResult_native = CLBlastClearCache();
+    CLBlastStatusCode jniResult_native = CLBlastClearCache();
 
     // Return the result
     jint jniResult = (jint)jniResult_native;
@@ -13901,7 +13901,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastFillCacheNative(JNIEnv
     if (!initNative(env, device, device_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    StatusCode jniResult_native = CLBlastFillCache(device_native);
+    CLBlastStatusCode jniResult_native = CLBlastFillCache(device_native);
 
     // Write back native variable values
     // device is a read-only native pointer

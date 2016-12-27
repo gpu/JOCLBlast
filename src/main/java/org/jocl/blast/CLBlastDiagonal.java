@@ -29,15 +29,15 @@ package org.jocl.blast;
 /**
  * Matrix diagonal types
  */
-public class Diagonal
+public class CLBlastDiagonal
 {
-    public static final int kUnit = 131;
-    public static final int kNonUnit = 132;
+    public static final int CLBlastDiagonalNonUnit = 131;
+    public static final int CLBlastDiagonalUnit = 132;
 
     /**
      * Private constructor to prevent instantiation
      */
-    private Diagonal()
+    private CLBlastDiagonal()
     {
         // Private constructor to prevent instantiation
     }
@@ -51,10 +51,10 @@ public class Diagonal
     {
         switch (n)
         {
-            case kUnit: return "kUnit";
-            case kNonUnit: return "kNonUnit";
+            case CLBlastDiagonalNonUnit: return "CLBlastDiagonalNonUnit";
+            case CLBlastDiagonalUnit: return "CLBlastDiagonalUnit";
         }
-        return "INVALID Diagonal: "+n;
+        return "INVALID CLBlastDiagonal: "+n;
     }
 }
 
