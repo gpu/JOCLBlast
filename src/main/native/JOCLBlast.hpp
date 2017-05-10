@@ -1,7 +1,7 @@
 /*
  * JOCLBlast - Java bindings for CLBlast
  *
- * Copyright (c) 2015-2016 Marco Hutter - http://www.jocl.org
+ * Copyright (c) 2015-2017 Marco Hutter - http://www.jocl.org
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -1278,6 +1278,70 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZomatcopyNative
 
 /*
  * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastSaxpyBatchedNative
+ * Signature: (J[FLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSaxpyBatchedNative
+  (JNIEnv *, jclass, jlong, jfloatArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDaxpyBatchedNative
+ * Signature: (J[DLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDaxpyBatchedNative
+  (JNIEnv *, jclass, jlong, jdoubleArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastCaxpyBatchedNative
+ * Signature: (J[FLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCaxpyBatchedNative
+  (JNIEnv *, jclass, jlong, jfloatArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastZaxpyBatchedNative
+ * Signature: (J[DLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZaxpyBatchedNative
+  (JNIEnv *, jclass, jlong, jdoubleArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastSgemmBatchedNative
+ * Signature: (IIIJJJ[FLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJ[FLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jfloatArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jfloatArray, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDgemmBatchedNative
+ * Signature: (IIIJJJ[DLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJ[DLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdoubleArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jdoubleArray, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastCgemmBatchedNative
+ * Signature: (IIIJJJ[FLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJ[FLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jfloatArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jfloatArray, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastZgemmBatchedNative
+ * Signature: (IIIJJJ[DLorg/jocl/cl_mem;[JJLorg/jocl/cl_mem;[JJ[DLorg/jocl/cl_mem;[JJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdoubleArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jdoubleArray, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
  * Method:    CLBlastClearCacheNative
  * Signature: ()I
  */
@@ -1291,6 +1355,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastClearCacheNative
  */
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastFillCacheNative
   (JNIEnv *, jclass, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastOverrideParametersNative
+ * Signature: (Lorg/jocl/cl_device_id;Ljava/lang/String;IJ[Ljava/lang/String;[J)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastOverrideParametersNative
+  (JNIEnv *, jclass, jobject, jstring, jint, jlong, jobjectArray, jlongArray);
 
 #ifdef __cplusplus
 }

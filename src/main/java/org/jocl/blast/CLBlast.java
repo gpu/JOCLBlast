@@ -43,7 +43,7 @@ public class CLBlast
     // Initialization of the native library
     static
     {
-        String versionString = "0_10_0";
+        String versionString = "0_11_0";
         String libraryBaseName = "JOCLBlast_" + versionString;
         String libraryName = 
             LibUtils.createPlatformLibraryName(libraryBaseName);
@@ -95,7 +95,7 @@ public class CLBlast
     {
         if (exceptionsEnabled && result != CL.CL_SUCCESS)
         {
-            throw new CLException(CL.stringFor_errorCode(result), result);
+            throw new CLException(CLBlastStatusCode.stringFor(result), result);
         }
         return result;
     }
@@ -4976,7 +4976,7 @@ public class CLBlast
         cl_event event);
 
 
-    // Solves a triangular system of equations: STRSM/DTRSM/CTRSM/ZTRSM/HTRSM
+    // Solves a triangular system of equations: STRSM/DTRSM/CTRSM/ZTRSM
     public static int CLBlastStrsm(
         int layout, 
         int side, 
@@ -5269,6 +5269,312 @@ public class CLBlast
         cl_event event);
 
 
+    // Batched version of AXPY: SAXPYBATCHED/DAXPYBATCHED/CAXPYBATCHED/ZAXPYBATCHED/HAXPYBATCHED
+    public static int CLBlastSaxpyBatched(
+        long n, 
+        float[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSaxpyBatchedNative(n, alphas, x_buffer, x_offsets, x_inc, y_buffer, y_offsets, y_inc, batch_count, queue, event));
+    }
+    private static native int CLBlastSaxpyBatchedNative(
+        long n, 
+        float[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDaxpyBatched(
+        long n, 
+        double[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDaxpyBatchedNative(n, alphas, x_buffer, x_offsets, x_inc, y_buffer, y_offsets, y_inc, batch_count, queue, event));
+    }
+    private static native int CLBlastDaxpyBatchedNative(
+        long n, 
+        double[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastCaxpyBatched(
+        long n, 
+        float[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastCaxpyBatchedNative(n, alphas, x_buffer, x_offsets, x_inc, y_buffer, y_offsets, y_inc, batch_count, queue, event));
+    }
+    private static native int CLBlastCaxpyBatchedNative(
+        long n, 
+        float[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastZaxpyBatched(
+        long n, 
+        double[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastZaxpyBatchedNative(n, alphas, x_buffer, x_offsets, x_inc, y_buffer, y_offsets, y_inc, batch_count, queue, event));
+    }
+    private static native int CLBlastZaxpyBatchedNative(
+        long n, 
+        double[] alphas, 
+        cl_mem x_buffer, 
+        long[] x_offsets, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long[] y_offsets, 
+        long y_inc, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Batched version of GEMM: SGEMMBATCHED/DGEMMBATCHED/CGEMMBATCHED/ZGEMMBATCHED/HGEMMBATCHED
+    public static int CLBlastSgemmBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        float[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSgemmBatchedNative(layout, a_transpose, b_transpose, m, n, k, alphas, a_buffer, a_offsets, a_ld, b_buffer, b_offsets, b_ld, betas, c_buffer, c_offsets, c_ld, batch_count, queue, event));
+    }
+    private static native int CLBlastSgemmBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        float[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDgemmBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        double[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDgemmBatchedNative(layout, a_transpose, b_transpose, m, n, k, alphas, a_buffer, a_offsets, a_ld, b_buffer, b_offsets, b_ld, betas, c_buffer, c_offsets, c_ld, batch_count, queue, event));
+    }
+    private static native int CLBlastDgemmBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        double[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastCgemmBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        float[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastCgemmBatchedNative(layout, a_transpose, b_transpose, m, n, k, alphas, a_buffer, a_offsets, a_ld, b_buffer, b_offsets, b_ld, betas, c_buffer, c_offsets, c_ld, batch_count, queue, event));
+    }
+    private static native int CLBlastCgemmBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        float[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastZgemmBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        double[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastZgemmBatchedNative(layout, a_transpose, b_transpose, m, n, k, alphas, a_buffer, a_offsets, a_ld, b_buffer, b_offsets, b_ld, betas, c_buffer, c_offsets, c_ld, batch_count, queue, event));
+    }
+    private static native int CLBlastZgemmBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alphas, 
+        cl_mem a_buffer, 
+        long[] a_offsets, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long[] b_offsets, 
+        long b_ld, 
+        double[] betas, 
+        cl_mem c_buffer, 
+        long[] c_offsets, 
+        long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
     // =================================================================================================
     // CLBlast stores binaries of compiled kernels into a cache in case the same kernel is used later on
     // for the same device. This cache can be cleared to free up system memory or in case of debugging.
@@ -5288,6 +5594,28 @@ public class CLBlast
     }
     private static native int CLBlastFillCacheNative(
         cl_device_id device);
+
+
+    // =================================================================================================
+    // Overrides tuning parameters for a specific device-precision-kernel combination. The next time
+    // the target routine is called it will re-compile and use the new parameters from then on.
+    public static int CLBlastOverrideParameters(
+        cl_device_id device, 
+        String kernel_name, 
+        int precision, 
+        long num_parameters, 
+        String[] parameters_names, 
+        long[] parameters_values)
+    {
+        return checkResult(CLBlastOverrideParametersNative(device, kernel_name, precision, num_parameters, parameters_names, parameters_values));
+    }
+    private static native int CLBlastOverrideParametersNative(
+        cl_device_id device, 
+        String kernel_name, 
+        int precision, 
+        long num_parameters, 
+        String[] parameters_names, 
+        long[] parameters_values);
 
 
     /**

@@ -1,7 +1,7 @@
 /*
  * JOCLBlast - Java bindings for CLBlast
  *
- * Copyright (c) 2016 Marco Hutter - http://www.jocl.org
+ * Copyright (c) 2016-2017 Marco Hutter - http://www.jocl.org
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation

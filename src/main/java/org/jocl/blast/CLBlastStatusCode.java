@@ -1,7 +1,7 @@
 /*
  * JOCLBlast - Java bindings for CLBlast
  *
- * Copyright (c) 2016 Marco Hutter - http://www.jocl.org
+ * Copyright (c) 2016-2017 Marco Hutter - http://www.jocl.org
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -149,10 +149,10 @@ public class CLBlastStatusCode
      * CL_INVALID_GLOBAL_WORK_SIZE
      */
     public static final int CLBlastInvalidGlobalWorkSize = -63;
-    
+
     // Status codes in common with the clBLAS library
     /**
-     * Routine or functionality not implemented yet 
+     * Routine or functionality not implemented yet
      */
     public static final int CLBlastNotImplemented = -1024; 
     /**
@@ -219,8 +219,21 @@ public class CLBlastStatusCode
      * Vector Y's OpenCL buffer is too small
      */
     public static final int CLBlastInsufficientMemoryY = -1007;
-
+    
     // Custom additional status codes for CLBlast
+    
+    /**
+     * The batch count needs to be positive
+     */
+    public static final int CLBlastInvalidBatchCount = -2049;
+    /**
+     * Trying to override parameters for an invalid kernel
+     */
+    public static final int CLBlastInvalidOverrideKernel = -2048;
+    /**
+     * Missing override parameter(s) for the target kernel
+     */
+    public static final int CLBlastMissingOverrideParameter = -2047;
     /**
      * Not enough local memory available on this device
      */
@@ -317,6 +330,9 @@ public class CLBlastStatusCode
             case CLBlastInsufficientMemoryC: return "CLBlastInsufficientMemoryC";
             case CLBlastInsufficientMemoryX: return "CLBlastInsufficientMemoryX";
             case CLBlastInsufficientMemoryY: return "CLBlastInsufficientMemoryY";
+            case CLBlastInvalidBatchCount: return "CLBlastInvalidBatchCount";
+            case CLBlastInvalidOverrideKernel: return "CLBlastInvalidOverrideKernel";
+            case CLBlastMissingOverrideParameter: return "CLBlastMissingOverrideParameter";
             case CLBlastInvalidLocalMemUsage: return "CLBlastInvalidLocalMemUsage";
             case CLBlastNoHalfPrecision: return "CLBlastNoHalfPrecision";
             case CLBlastNoDoublePrecision: return "CLBlastNoDoublePrecision";
