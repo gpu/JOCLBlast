@@ -13925,10 +13925,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSaxpyBatchedNative(JNI
     n_native = (size_t)n;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     x_inc_native = (size_t)x_inc;
     if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     y_inc_native = (size_t)y_inc;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -13941,10 +13941,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSaxpyBatchedNative(JNI
     // n is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_buffer is a read-only native pointer
-    if (!releaseNative(env, x_offsets_native, x_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, x_offsets_native, x_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_inc is primitive
     // y_buffer is a read-only native pointer
-    if (!releaseNative(env, y_offsets_native, y_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, y_offsets_native, y_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // y_inc is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14015,10 +14015,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDaxpyBatchedNative(JNI
     n_native = (size_t)n;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     x_inc_native = (size_t)x_inc;
     if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     y_inc_native = (size_t)y_inc;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -14031,10 +14031,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDaxpyBatchedNative(JNI
     // n is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_buffer is a read-only native pointer
-    if (!releaseNative(env, x_offsets_native, x_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, x_offsets_native, x_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_inc is primitive
     // y_buffer is a read-only native pointer
-    if (!releaseNative(env, y_offsets_native, y_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, y_offsets_native, y_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // y_inc is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14105,10 +14105,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCaxpyBatchedNative(JNI
     n_native = (size_t)n;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     x_inc_native = (size_t)x_inc;
     if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     y_inc_native = (size_t)y_inc;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -14121,10 +14121,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCaxpyBatchedNative(JNI
     // n is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_buffer is a read-only native pointer
-    if (!releaseNative(env, x_offsets_native, x_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, x_offsets_native, x_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_inc is primitive
     // y_buffer is a read-only native pointer
-    if (!releaseNative(env, y_offsets_native, y_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, y_offsets_native, y_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // y_inc is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14195,10 +14195,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZaxpyBatchedNative(JNI
     n_native = (size_t)n;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, x_offsets, x_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     x_inc_native = (size_t)x_inc;
     if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, y_offsets, y_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     y_inc_native = (size_t)y_inc;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -14211,10 +14211,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZaxpyBatchedNative(JNI
     // n is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_buffer is a read-only native pointer
-    if (!releaseNative(env, x_offsets_native, x_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, x_offsets_native, x_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // x_inc is primitive
     // y_buffer is a read-only native pointer
-    if (!releaseNative(env, y_offsets_native, y_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, y_offsets_native, y_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // y_inc is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14321,14 +14321,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmBatchedNative(JNI
     k_native = (size_t)k;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_ld_native = (size_t)a_ld;
     if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     b_ld_native = (size_t)b_ld;
     if (!initNative(env, betas, betas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     c_ld_native = (size_t)c_ld;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -14346,14 +14346,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmBatchedNative(JNI
     // k is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_buffer is a read-only native pointer
-    if (!releaseNative(env, a_offsets_native, a_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, a_offsets_native, a_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_ld is primitive
     // b_buffer is a read-only native pointer
-    if (!releaseNative(env, b_offsets_native, b_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, b_offsets_native, b_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // b_ld is primitive
     if (!releaseNative(env, betas_native, betas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_buffer is a read-only native pointer
-    if (!releaseNative(env, c_offsets_native, c_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, c_offsets_native, c_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_ld is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14459,14 +14459,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmBatchedNative(JNI
     k_native = (size_t)k;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_ld_native = (size_t)a_ld;
     if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     b_ld_native = (size_t)b_ld;
     if (!initNative(env, betas, betas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     c_ld_native = (size_t)c_ld;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -14484,14 +14484,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmBatchedNative(JNI
     // k is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_buffer is a read-only native pointer
-    if (!releaseNative(env, a_offsets_native, a_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, a_offsets_native, a_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_ld is primitive
     // b_buffer is a read-only native pointer
-    if (!releaseNative(env, b_offsets_native, b_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, b_offsets_native, b_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // b_ld is primitive
     if (!releaseNative(env, betas_native, betas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_buffer is a read-only native pointer
-    if (!releaseNative(env, c_offsets_native, c_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, c_offsets_native, c_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_ld is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14597,14 +14597,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmBatchedNative(JNI
     k_native = (size_t)k;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_ld_native = (size_t)a_ld;
     if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     b_ld_native = (size_t)b_ld;
     if (!initNative(env, betas, betas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     c_ld_native = (size_t)c_ld;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -14622,14 +14622,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmBatchedNative(JNI
     // k is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_buffer is a read-only native pointer
-    if (!releaseNative(env, a_offsets_native, a_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, a_offsets_native, a_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_ld is primitive
     // b_buffer is a read-only native pointer
-    if (!releaseNative(env, b_offsets_native, b_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, b_offsets_native, b_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // b_ld is primitive
     if (!releaseNative(env, betas_native, betas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_buffer is a read-only native pointer
-    if (!releaseNative(env, c_offsets_native, c_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, c_offsets_native, c_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_ld is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14735,14 +14735,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmBatchedNative(JNI
     k_native = (size_t)k;
     if (!initNative(env, alphas, alphas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, a_offsets, a_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     a_ld_native = (size_t)a_ld;
     if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, b_offsets, b_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     b_ld_native = (size_t)b_ld;
     if (!initNative(env, betas, betas_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, c_offsets, c_offsets_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     c_ld_native = (size_t)c_ld;
     batch_count_native = (size_t)batch_count;
     if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
@@ -14760,14 +14760,14 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmBatchedNative(JNI
     // k is primitive
     if (!releaseNative(env, alphas_native, alphas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_buffer is a read-only native pointer
-    if (!releaseNative(env, a_offsets_native, a_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, a_offsets_native, a_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // a_ld is primitive
     // b_buffer is a read-only native pointer
-    if (!releaseNative(env, b_offsets_native, b_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, b_offsets_native, b_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // b_ld is primitive
     if (!releaseNative(env, betas_native, betas, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_buffer is a read-only native pointer
-    if (!releaseNative(env, c_offsets_native, c_offsets, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, c_offsets_native, c_offsets, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // c_ld is primitive
     // batch_count is primitive
     // queue is a read-only native pointer
@@ -14873,7 +14873,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastOverrideParametersNati
     precision_native = (CLBlastPrecision)precision;
     num_parameters_native = (size_t)num_parameters;
     if (!initNative(env, parameters_names, parameters_names_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!initNative(env, parameters_values, parameters_values_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, parameters_values, parameters_values_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
     CLBlastStatusCode jniResult_native = CLBlastOverrideParameters(device_native, kernel_name_native, precision_native, num_parameters_native, (const char**)parameters_names_native, parameters_values_native);
@@ -14883,8 +14883,8 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastOverrideParametersNati
     if (!releaseNative(env, kernel_name_native, kernel_name, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
     // precision is primitive
     // num_parameters is primitive
-    if (!releaseNative(env, parameters_names_native, parameters_names, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
-    if (!releaseNative(env, parameters_values_native, parameters_values, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative(env, parameters_names_native, parameters_names, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!releaseNative_size_t(env, parameters_values_native, parameters_values, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Return the result
     jint jniResult = (jint)jniResult_native;
