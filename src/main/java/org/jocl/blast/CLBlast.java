@@ -43,7 +43,7 @@ public class CLBlast
     // Initialization of the native library
     static
     {
-        String versionString = "0_11_0";
+        String versionString = "1_0_1";
         String libraryBaseName = "JOCLBlast_" + versionString;
         String libraryName = 
             LibUtils.createPlatformLibraryName(libraryBaseName);
@@ -1316,6 +1316,99 @@ public class CLBlast
         long n, 
         cl_mem imax_buffer, 
         long imax_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Index of absolute minimum value in a vector (non-BLAS function): iSAMIN/iDAMIN/iCAMIN/iZAMIN/iHAMIN
+    public static int CLBlastiSamin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiSaminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiSaminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiDamin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiDaminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiDaminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiCamin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiCaminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiCaminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastiZamin(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastiZaminNative(n, imin_buffer, imin_offset, x_buffer, x_offset, x_inc, queue, event));
+    }
+    private static native int CLBlastiZaminNative(
+        long n, 
+        cl_mem imin_buffer, 
+        long imin_offset, 
         cl_mem x_buffer, 
         long x_offset, 
         long x_inc, 
