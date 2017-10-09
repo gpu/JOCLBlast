@@ -43,7 +43,7 @@ public class CLBlast
     // Initialization of the native library
     static
     {
-        String versionString = "1_0_1";
+        String versionString = "1_1_0";
         String libraryBaseName = "JOCLBlast_" + versionString;
         String libraryName = 
             LibUtils.createPlatformLibraryName(libraryBaseName);
@@ -5358,6 +5358,171 @@ public class CLBlast
         cl_mem b_buffer, 
         long b_offset, 
         long b_ld, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // Im2col function (non-BLAS function): SIM2COL/DIM2COL/CIM2COL/ZIM2COL/HIM2COL
+    public static int CLBlastSim2col(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSim2colNative(channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event));
+    }
+    private static native int CLBlastSim2colNative(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDim2col(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDim2colNative(channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event));
+    }
+    private static native int CLBlastDim2colNative(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastCim2col(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastCim2colNative(channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event));
+    }
+    private static native int CLBlastCim2colNative(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastZim2col(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastZim2colNative(channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event));
+    }
+    private static native int CLBlastZim2colNative(
+        long channels, 
+        long height, 
+        long width, 
+        long kernel_h, 
+        long kernel_w, 
+        long pad_h, 
+        long pad_w, 
+        long stride_h, 
+        long stride_w, 
+        long dilation_h, 
+        long dilation_w, 
+        cl_mem im_buffer, 
+        long im_offset, 
+        cl_mem col_buffer, 
+        long col_offset, 
         cl_command_queue queue, 
         cl_event event);
 
