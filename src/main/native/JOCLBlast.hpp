@@ -1,7 +1,7 @@
 /*
  * JOCLBlast - Java bindings for CLBlast
  *
- * Copyright (c) 2015-2017 Marco Hutter - http://www.jocl.org
+ * Copyright (c) 2015-2018 Marco Hutter - http://www.jocl.org
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -1403,6 +1403,38 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmBatchedNative
  */
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmBatchedNative
   (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdoubleArray, jobject, jlongArray, jlong, jobject, jlongArray, jlong, jdoubleArray, jobject, jlongArray, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastSgemmStridedBatchedNative
+ * Signature: (IIIJJJFLorg/jocl/cl_mem;JJJLorg/jocl/cl_mem;JJJFLorg/jocl/cl_mem;JJJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmStridedBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jfloat, jobject, jlong, jlong, jlong, jobject, jlong, jlong, jlong, jfloat, jobject, jlong, jlong, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDgemmStridedBatchedNative
+ * Signature: (IIIJJJDLorg/jocl/cl_mem;JJJLorg/jocl/cl_mem;JJJDLorg/jocl/cl_mem;JJJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmStridedBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdouble, jobject, jlong, jlong, jlong, jobject, jlong, jlong, jlong, jdouble, jobject, jlong, jlong, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastCgemmStridedBatchedNative
+ * Signature: (IIIJJJ[FLorg/jocl/cl_mem;JJJLorg/jocl/cl_mem;JJJ[FLorg/jocl/cl_mem;JJJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmStridedBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jfloatArray, jobject, jlong, jlong, jlong, jobject, jlong, jlong, jlong, jfloatArray, jobject, jlong, jlong, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastZgemmStridedBatchedNative
+ * Signature: (IIIJJJ[DLorg/jocl/cl_mem;JJJLorg/jocl/cl_mem;JJJ[DLorg/jocl/cl_mem;JJJJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmStridedBatchedNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jlong, jobject, jlong, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jlong, jlong, jobject, jobject);
 
 /*
  * Class:     org_jocl_blast_CLBlast

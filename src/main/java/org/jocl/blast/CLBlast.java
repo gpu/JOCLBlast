@@ -43,7 +43,7 @@ public class CLBlast
     // Initialization of the native library
     static
     {
-        String versionString = "1_2_0";
+        String versionString = "1_3_0";
         String libraryBaseName = "JOCLBlast_" + versionString;
         String libraryName = 
             LibUtils.createPlatformLibraryName(libraryBaseName);
@@ -5828,6 +5828,219 @@ public class CLBlast
         cl_mem c_buffer, 
         long[] c_offsets, 
         long c_ld, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    // StridedBatched version of GEMM: SGEMMSTRIDEDBATCHED/DGEMMSTRIDEDBATCHED/CGEMMSTRIDEDBATCHED/ZGEMMSTRIDEDBATCHED/HGEMMSTRIDEDBATCHED
+    public static int CLBlastSgemmStridedBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        float beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastSgemmStridedBatchedNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event));
+    }
+    private static native int CLBlastSgemmStridedBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        float beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDgemmStridedBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        double beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDgemmStridedBatchedNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event));
+    }
+    private static native int CLBlastDgemmStridedBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        double beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastCgemmStridedBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        float[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastCgemmStridedBatchedNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event));
+    }
+    private static native int CLBlastCgemmStridedBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        float[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastZgemmStridedBatched(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        double[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
+        long batch_count, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastZgemmStridedBatchedNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event));
+    }
+    private static native int CLBlastZgemmStridedBatchedNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        long a_stride, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        long b_stride, 
+        double[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        long c_stride, 
         long batch_count, 
         cl_command_queue queue, 
         cl_event event);

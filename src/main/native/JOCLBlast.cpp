@@ -1,7 +1,7 @@
 /*
 * JOCLBlast - Java bindings for CLBlast
 *
-* Copyright (c) 2016 Marco Hutter - http://www.jocl.org
+* Copyright (c) 2016-2018 Marco Hutter - http://www.jocl.org
 *
 * Permission is hereby granted, free of charge, to any person
 * obtaining a copy of this software and associated documentation
@@ -15452,6 +15452,543 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmBatchedNative(JNI
     return jniResult;
 }
 
+// StridedBatched version of GEMM: SGEMMSTRIDEDBATCHED/DGEMMSTRIDEDBATCHED/CGEMMSTRIDEDBATCHED/ZGEMMSTRIDEDBATCHED/HGEMMSTRIDEDBATCHED
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmStridedBatchedNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jlong a_stride, jobject b_buffer, jlong b_offset, jlong b_ld, jlong b_stride, jfloat beta, jobject c_buffer, jlong c_offset, jlong c_ld, jlong c_stride, jlong batch_count, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastSgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastSgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    // beta is primitive
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastSgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastSgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastSgemmStridedBatched(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%f, a_buffer=%p, a_offset=%ld, a_ld=%ld, a_stride=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, b_stride=%ld, beta=%f, c_buffer=%p, c_offset=%ld, c_ld=%ld, c_stride=%ld, batch_count=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    float alpha_native = 0.0f;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t a_stride_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t b_stride_native = 0;
+    float beta_native = 0.0f;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    size_t c_stride_native = 0;
+    size_t batch_count_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    alpha_native = (float)alpha;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    a_stride_native = (size_t)a_stride;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    b_stride_native = (size_t)b_stride;
+    beta_native = (float)beta;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    c_stride_native = (size_t)c_stride;
+    batch_count_native = (size_t)batch_count;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastSgemmStridedBatched(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, a_stride_native, b_buffer_native, b_offset_native, b_ld_native, b_stride_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, c_stride_native, batch_count_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    // beta is primitive
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmStridedBatchedNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jdouble alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jlong a_stride, jobject b_buffer, jlong b_offset, jlong b_ld, jlong b_stride, jdouble beta, jobject c_buffer, jlong c_offset, jlong c_ld, jlong c_stride, jlong batch_count, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastDgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastDgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    // beta is primitive
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastDgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastDgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastDgemmStridedBatched(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%lf, a_buffer=%p, a_offset=%ld, a_ld=%ld, a_stride=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, b_stride=%ld, beta=%lf, c_buffer=%p, c_offset=%ld, c_ld=%ld, c_stride=%ld, batch_count=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    double alpha_native = 0.0;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t a_stride_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t b_stride_native = 0;
+    double beta_native = 0.0;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    size_t c_stride_native = 0;
+    size_t batch_count_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    alpha_native = (double)alpha;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    a_stride_native = (size_t)a_stride;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    b_stride_native = (size_t)b_stride;
+    beta_native = (double)beta;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    c_stride_native = (size_t)c_stride;
+    batch_count_native = (size_t)batch_count;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastDgemmStridedBatched(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, a_stride_native, b_buffer_native, b_offset_native, b_ld_native, b_stride_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, c_stride_native, batch_count_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    // beta is primitive
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmStridedBatchedNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jfloatArray alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jlong a_stride, jobject b_buffer, jlong b_offset, jlong b_ld, jlong b_stride, jfloatArray beta, jobject c_buffer, jlong c_offset, jlong c_ld, jlong c_stride, jlong batch_count, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastCgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastCgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastCgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    if (beta == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'beta' is null for CLBlastCgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastCgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastCgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastCgemmStridedBatched(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%p, a_buffer=%p, a_offset=%ld, a_ld=%ld, a_stride=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, b_stride=%ld, beta=%p, c_buffer=%p, c_offset=%ld, c_ld=%ld, c_stride=%ld, batch_count=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    cl_float2 alpha_native;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t a_stride_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t b_stride_native = 0;
+    cl_float2 beta_native;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    size_t c_stride_native = 0;
+    size_t batch_count_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    a_stride_native = (size_t)a_stride;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    b_stride_native = (size_t)b_stride;
+    if (!initNative(env, beta, beta_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    c_stride_native = (size_t)c_stride;
+    batch_count_native = (size_t)batch_count;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastCgemmStridedBatched(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, a_stride_native, b_buffer_native, b_offset_native, b_ld_native, b_stride_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, c_stride_native, batch_count_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    if (!releaseNative(env, beta_native, beta, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmStridedBatchedNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jdoubleArray alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jlong a_stride, jobject b_buffer, jlong b_offset, jlong b_ld, jlong b_stride, jdoubleArray beta, jobject c_buffer, jlong c_offset, jlong c_ld, jlong c_stride, jlong batch_count, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastZgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastZgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastZgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    if (beta == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'beta' is null for CLBlastZgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastZgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastZgemmStridedBatched");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastZgemmStridedBatched(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%p, a_buffer=%p, a_offset=%ld, a_ld=%ld, a_stride=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, b_stride=%ld, beta=%p, c_buffer=%p, c_offset=%ld, c_ld=%ld, c_stride=%ld, batch_count=%ld, queue=%p, event=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, a_stride, b_buffer, b_offset, b_ld, b_stride, beta, c_buffer, c_offset, c_ld, c_stride, batch_count, queue, event);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    cl_double2 alpha_native;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t a_stride_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t b_stride_native = 0;
+    cl_double2 beta_native;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    size_t c_stride_native = 0;
+    size_t batch_count_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    a_stride_native = (size_t)a_stride;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    b_stride_native = (size_t)b_stride;
+    if (!initNative(env, beta, beta_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    c_stride_native = (size_t)c_stride;
+    batch_count_native = (size_t)batch_count;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastZgemmStridedBatched(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, a_stride_native, b_buffer_native, b_offset_native, b_ld_native, b_stride_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, c_stride_native, batch_count_native, queue_native, event_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // a_stride is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // b_stride is primitive
+    if (!releaseNative(env, beta_native, beta, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // c_stride is primitive
+    // batch_count is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
 // =================================================================================================
 // CLBlast stores binaries of compiled kernels into a cache in case the same kernel is used later on
 // for the same device. This cache can be cleared to free up system memory or in case of debugging.
@@ -15564,5 +16101,6 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastOverrideParametersNati
     jint jniResult = (jint)jniResult_native;
     return jniResult;
 }
+
 
 
