@@ -1278,6 +1278,38 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative
 
 /*
  * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastShadNative
+ * Signature: (JFLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJFLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastShadNative
+  (JNIEnv *, jclass, jlong, jfloat, jobject, jlong, jlong, jobject, jlong, jlong, jfloat, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDhadNative
+ * Signature: (JDLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJDLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDhadNative
+  (JNIEnv *, jclass, jlong, jdouble, jobject, jlong, jlong, jobject, jlong, jlong, jdouble, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastChadNative
+ * Signature: (J[FLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJ[FLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChadNative
+  (JNIEnv *, jclass, jlong, jfloatArray, jobject, jlong, jlong, jobject, jlong, jlong, jfloatArray, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastZhadNative
+ * Signature: (J[DLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJ[DLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhadNative
+  (JNIEnv *, jclass, jlong, jdoubleArray, jobject, jlong, jlong, jobject, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
  * Method:    CLBlastSomatcopyNative
  * Signature: (IIJJFLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;)I
  */
@@ -1435,6 +1467,70 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmStridedBatchedNat
  */
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmStridedBatchedNative
   (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jlong, jobject, jlong, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jlong, jlong, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastSgemmWithTempBufferNative
+ * Signature: (IIIJJJFLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJFLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;Lorg/jocl/cl_mem;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmWithTempBufferNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jfloat, jobject, jlong, jlong, jobject, jlong, jlong, jfloat, jobject, jlong, jlong, jobject, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDgemmWithTempBufferNative
+ * Signature: (IIIJJJDLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJDLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;Lorg/jocl/cl_mem;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmWithTempBufferNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdouble, jobject, jlong, jlong, jobject, jlong, jlong, jdouble, jobject, jlong, jlong, jobject, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastCgemmWithTempBufferNative
+ * Signature: (IIIJJJ[FLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJ[FLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;Lorg/jocl/cl_mem;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmWithTempBufferNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jfloatArray, jobject, jlong, jlong, jobject, jlong, jlong, jfloatArray, jobject, jlong, jlong, jobject, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastZgemmWithTempBufferNative
+ * Signature: (IIIJJJ[DLorg/jocl/cl_mem;JJLorg/jocl/cl_mem;JJ[DLorg/jocl/cl_mem;JJLorg/jocl/cl_command_queue;Lorg/jocl/cl_event;Lorg/jocl/cl_mem;)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmWithTempBufferNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jobject, jlong, jlong, jdoubleArray, jobject, jlong, jlong, jobject, jobject, jobject);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastSGemmTempBufferSizeNative
+ * Signature: (IIIJJJJJJJJJLorg/jocl/cl_command_queue;[J)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSGemmTempBufferSizeNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jobject, jlongArray);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastDGemmTempBufferSizeNative
+ * Signature: (IIIJJJJJJJJJLorg/jocl/cl_command_queue;[J)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDGemmTempBufferSizeNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jobject, jlongArray);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastCGemmTempBufferSizeNative
+ * Signature: (IIIJJJJJJJJJLorg/jocl/cl_command_queue;[J)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCGemmTempBufferSizeNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jobject, jlongArray);
+
+/*
+ * Class:     org_jocl_blast_CLBlast
+ * Method:    CLBlastZGemmTempBufferSizeNative
+ * Signature: (IIIJJJJJJJJJLorg/jocl/cl_command_queue;[J)I
+ */
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZGemmTempBufferSizeNative
+  (JNIEnv *, jclass, jint, jint, jint, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jlong, jobject, jlongArray);
 
 /*
  * Class:     org_jocl_blast_CLBlast

@@ -43,7 +43,7 @@ public class CLBlast
     // Initialization of the native library
     static
     {
-        String versionString = "1_3_0";
+        String versionString = "1_4_0";
         String libraryBaseName = "JOCLBlast_" + versionString;
         String libraryName = 
             LibUtils.createPlatformLibraryName(libraryBaseName);
@@ -5229,6 +5229,147 @@ public class CLBlast
     // =================================================================================================
     // Extra non-BLAS routines (level-X)
     // =================================================================================================
+    // Element-wise vector product (Hadamard): SHAD/DHAD/CHAD/ZHAD/HHAD
+    public static int CLBlastShad(
+        long n, 
+        float alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        float beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastShadNative(n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event));
+    }
+    private static native int CLBlastShadNative(
+        long n, 
+        float alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        float beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastDhad(
+        long n, 
+        double alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        double beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastDhadNative(n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event));
+    }
+    private static native int CLBlastDhadNative(
+        long n, 
+        double alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        double beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastChad(
+        long n, 
+        float[] alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        float[] beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastChadNative(n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event));
+    }
+    private static native int CLBlastChadNative(
+        long n, 
+        float[] alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        float[] beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
+    public static int CLBlastZhad(
+        long n, 
+        double[] alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        double[] beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event)
+    {
+        return checkResult(CLBlastZhadNative(n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event));
+    }
+    private static native int CLBlastZhadNative(
+        long n, 
+        double[] alpha, 
+        cl_mem x_buffer, 
+        long x_offset, 
+        long x_inc, 
+        cl_mem y_buffer, 
+        long y_offset, 
+        long y_inc, 
+        double[] beta, 
+        cl_mem z_buffer, 
+        long z_offset, 
+        long z_inc, 
+        cl_command_queue queue, 
+        cl_event event);
+
+
     // Scaling and out-place transpose/copy (non-BLAS function): SOMATCOPY/DOMATCOPY/COMATCOPY/ZOMATCOPY/HOMATCOPY
     public static int CLBlastSomatcopy(
         int layout, 
@@ -6044,6 +6185,338 @@ public class CLBlast
         long batch_count, 
         cl_command_queue queue, 
         cl_event event);
+
+
+    // =================================================================================================
+    // General matrix-matrix multiplication with temporary buffer from user (optional, for advanced users): SGEMM/DGEMM/CGEMM/ZGEMM/HGEMM
+    public static int CLBlastSgemmWithTempBuffer(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        float beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer)
+    {
+        return checkResult(CLBlastSgemmWithTempBufferNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer));
+    }
+    private static native int CLBlastSgemmWithTempBufferNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        float beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer);
+
+
+    public static int CLBlastDgemmWithTempBuffer(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        double beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer)
+    {
+        return checkResult(CLBlastDgemmWithTempBufferNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer));
+    }
+    private static native int CLBlastDgemmWithTempBufferNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        double beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer);
+
+
+    public static int CLBlastCgemmWithTempBuffer(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        float[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer)
+    {
+        return checkResult(CLBlastCgemmWithTempBufferNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer));
+    }
+    private static native int CLBlastCgemmWithTempBufferNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        float[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        float[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer);
+
+
+    public static int CLBlastZgemmWithTempBuffer(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        double[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer)
+    {
+        return checkResult(CLBlastZgemmWithTempBufferNative(layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer));
+    }
+    private static native int CLBlastZgemmWithTempBufferNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        double[] alpha, 
+        cl_mem a_buffer, 
+        long a_offset, 
+        long a_ld, 
+        cl_mem b_buffer, 
+        long b_offset, 
+        long b_ld, 
+        double[] beta, 
+        cl_mem c_buffer, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        cl_event event, 
+        cl_mem temp_buffer);
+
+
+    // =================================================================================================
+    // Retrieves the required size of the temporary buffer for the GEMM kernel: SGEMM/DGEMM/CGEMM/ZGEMM/HGEMM (optional)
+    public static int CLBlastSGemmTempBufferSize(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size)
+    {
+        return checkResult(CLBlastSGemmTempBufferSizeNative(layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size));
+    }
+    private static native int CLBlastSGemmTempBufferSizeNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size);
+
+
+    public static int CLBlastDGemmTempBufferSize(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size)
+    {
+        return checkResult(CLBlastDGemmTempBufferSizeNative(layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size));
+    }
+    private static native int CLBlastDGemmTempBufferSizeNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size);
+
+
+    public static int CLBlastCGemmTempBufferSize(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size)
+    {
+        return checkResult(CLBlastCGemmTempBufferSizeNative(layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size));
+    }
+    private static native int CLBlastCGemmTempBufferSizeNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size);
+
+
+    public static int CLBlastZGemmTempBufferSize(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size)
+    {
+        return checkResult(CLBlastZGemmTempBufferSizeNative(layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size));
+    }
+    private static native int CLBlastZGemmTempBufferSizeNative(
+        int layout, 
+        int a_transpose, 
+        int b_transpose, 
+        long m, 
+        long n, 
+        long k, 
+        long a_offset, 
+        long a_ld, 
+        long b_offset, 
+        long b_ld, 
+        long c_offset, 
+        long c_ld, 
+        cl_command_queue queue, 
+        long[] temp_buffer_size);
 
 
     // =================================================================================================

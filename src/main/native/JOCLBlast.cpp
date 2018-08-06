@@ -13776,6 +13776,399 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZtrsmNative(JNIEnv *en
 // =================================================================================================
 // Extra non-BLAS routines (level-X)
 // =================================================================================================
+// Element-wise vector product (Hadamard): SHAD/DHAD/CHAD/ZHAD/HHAD
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastShadNative(JNIEnv *env, jclass cls, jlong n, jfloat alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jfloat beta, jobject z_buffer, jlong z_offset, jlong z_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    // alpha is primitive
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastShad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (y_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'y_buffer' is null for CLBlastShad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // y_offset is primitive
+    // y_inc is primitive
+    // beta is primitive
+    if (z_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'z_buffer' is null for CLBlastShad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // z_offset is primitive
+    // z_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastShad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastShad(n=%ld, alpha=%f, x_buffer=%p, x_offset=%ld, x_inc=%ld, y_buffer=%p, y_offset=%ld, y_inc=%ld, beta=%f, z_buffer=%p, z_offset=%ld, z_inc=%ld, queue=%p, event=%p)\n",
+        n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    float alpha_native = 0.0f;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_mem y_buffer_native = nullptr;
+    size_t y_offset_native = 0;
+    size_t y_inc_native = 0;
+    float beta_native = 0.0f;
+    cl_mem z_buffer_native = nullptr;
+    size_t z_offset_native = 0;
+    size_t z_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    alpha_native = (float)alpha;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    y_offset_native = (size_t)y_offset;
+    y_inc_native = (size_t)y_inc;
+    beta_native = (float)beta;
+    if (!initNative(env, z_buffer, z_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    z_offset_native = (size_t)z_offset;
+    z_inc_native = (size_t)z_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastShad(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, beta_native, z_buffer_native, z_offset_native, z_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    // alpha is primitive
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // y_buffer is a read-only native pointer
+    // y_offset is primitive
+    // y_inc is primitive
+    // beta is primitive
+    // z_buffer is a read-only native pointer
+    // z_offset is primitive
+    // z_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDhadNative(JNIEnv *env, jclass cls, jlong n, jdouble alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jdouble beta, jobject z_buffer, jlong z_offset, jlong z_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    // alpha is primitive
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastDhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (y_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'y_buffer' is null for CLBlastDhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // y_offset is primitive
+    // y_inc is primitive
+    // beta is primitive
+    if (z_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'z_buffer' is null for CLBlastDhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // z_offset is primitive
+    // z_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastDhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastDhad(n=%ld, alpha=%lf, x_buffer=%p, x_offset=%ld, x_inc=%ld, y_buffer=%p, y_offset=%ld, y_inc=%ld, beta=%lf, z_buffer=%p, z_offset=%ld, z_inc=%ld, queue=%p, event=%p)\n",
+        n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    double alpha_native = 0.0;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_mem y_buffer_native = nullptr;
+    size_t y_offset_native = 0;
+    size_t y_inc_native = 0;
+    double beta_native = 0.0;
+    cl_mem z_buffer_native = nullptr;
+    size_t z_offset_native = 0;
+    size_t z_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    alpha_native = (double)alpha;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    y_offset_native = (size_t)y_offset;
+    y_inc_native = (size_t)y_inc;
+    beta_native = (double)beta;
+    if (!initNative(env, z_buffer, z_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    z_offset_native = (size_t)z_offset;
+    z_inc_native = (size_t)z_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastDhad(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, beta_native, z_buffer_native, z_offset_native, z_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    // alpha is primitive
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // y_buffer is a read-only native pointer
+    // y_offset is primitive
+    // y_inc is primitive
+    // beta is primitive
+    // z_buffer is a read-only native pointer
+    // z_offset is primitive
+    // z_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastChadNative(JNIEnv *env, jclass cls, jlong n, jfloatArray alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jfloatArray beta, jobject z_buffer, jlong z_offset, jlong z_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastChad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastChad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (y_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'y_buffer' is null for CLBlastChad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // y_offset is primitive
+    // y_inc is primitive
+    if (beta == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'beta' is null for CLBlastChad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (z_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'z_buffer' is null for CLBlastChad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // z_offset is primitive
+    // z_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastChad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastChad(n=%ld, alpha=%p, x_buffer=%p, x_offset=%ld, x_inc=%ld, y_buffer=%p, y_offset=%ld, y_inc=%ld, beta=%p, z_buffer=%p, z_offset=%ld, z_inc=%ld, queue=%p, event=%p)\n",
+        n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    cl_float2 alpha_native;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_mem y_buffer_native = nullptr;
+    size_t y_offset_native = 0;
+    size_t y_inc_native = 0;
+    cl_float2 beta_native;
+    cl_mem z_buffer_native = nullptr;
+    size_t z_offset_native = 0;
+    size_t z_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    y_offset_native = (size_t)y_offset;
+    y_inc_native = (size_t)y_inc;
+    if (!initNative(env, beta, beta_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, z_buffer, z_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    z_offset_native = (size_t)z_offset;
+    z_inc_native = (size_t)z_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastChad(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, beta_native, z_buffer_native, z_offset_native, z_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // y_buffer is a read-only native pointer
+    // y_offset is primitive
+    // y_inc is primitive
+    if (!releaseNative(env, beta_native, beta, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // z_buffer is a read-only native pointer
+    // z_offset is primitive
+    // z_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZhadNative(JNIEnv *env, jclass cls, jlong n, jdoubleArray alpha, jobject x_buffer, jlong x_offset, jlong x_inc, jobject y_buffer, jlong y_offset, jlong y_inc, jdoubleArray beta, jobject z_buffer, jlong z_offset, jlong z_inc, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // n is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastZhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (x_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'x_buffer' is null for CLBlastZhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // x_offset is primitive
+    // x_inc is primitive
+    if (y_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'y_buffer' is null for CLBlastZhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // y_offset is primitive
+    // y_inc is primitive
+    if (beta == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'beta' is null for CLBlastZhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (z_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'z_buffer' is null for CLBlastZhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // z_offset is primitive
+    // z_inc is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastZhad");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastZhad(n=%ld, alpha=%p, x_buffer=%p, x_offset=%ld, x_inc=%ld, y_buffer=%p, y_offset=%ld, y_inc=%ld, beta=%p, z_buffer=%p, z_offset=%ld, z_inc=%ld, queue=%p, event=%p)\n",
+        n, alpha, x_buffer, x_offset, x_inc, y_buffer, y_offset, y_inc, beta, z_buffer, z_offset, z_inc, queue, event);
+
+    // Native variable declarations
+    size_t n_native = 0;
+    cl_double2 alpha_native;
+    cl_mem x_buffer_native = nullptr;
+    size_t x_offset_native = 0;
+    size_t x_inc_native = 0;
+    cl_mem y_buffer_native = nullptr;
+    size_t y_offset_native = 0;
+    size_t y_inc_native = 0;
+    cl_double2 beta_native;
+    cl_mem z_buffer_native = nullptr;
+    size_t z_offset_native = 0;
+    size_t z_inc_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    n_native = (size_t)n;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, x_buffer, x_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    x_offset_native = (size_t)x_offset;
+    x_inc_native = (size_t)x_inc;
+    if (!initNative(env, y_buffer, y_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    y_offset_native = (size_t)y_offset;
+    y_inc_native = (size_t)y_inc;
+    if (!initNative(env, beta, beta_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, z_buffer, z_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    z_offset_native = (size_t)z_offset;
+    z_inc_native = (size_t)z_inc;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastZhad(n_native, alpha_native, x_buffer_native, x_offset_native, x_inc_native, y_buffer_native, y_offset_native, y_inc_native, beta_native, z_buffer_native, z_offset_native, z_inc_native, queue_native, event_native);
+
+    // Write back native variable values
+    // n is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // x_buffer is a read-only native pointer
+    // x_offset is primitive
+    // x_inc is primitive
+    // y_buffer is a read-only native pointer
+    // y_offset is primitive
+    // y_inc is primitive
+    if (!releaseNative(env, beta_native, beta, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // z_buffer is a read-only native pointer
+    // z_offset is primitive
+    // z_inc is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
 // Scaling and out-place transpose/copy (non-BLAS function): SOMATCOPY/DOMATCOPY/COMATCOPY/ZOMATCOPY/HOMATCOPY
 JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSomatcopyNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jlong m, jlong n, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jobject queue, jobject event)
 {
@@ -15983,6 +16376,858 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmStridedBatchedNat
     // batch_count is primitive
     // queue is a read-only native pointer
     if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+// =================================================================================================
+// General matrix-matrix multiplication with temporary buffer from user (optional, for advanced users): SGEMM/DGEMM/CGEMM/ZGEMM/HGEMM
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSgemmWithTempBufferNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jfloat alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jfloat beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event, jobject temp_buffer)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastSgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastSgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    // beta is primitive
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastSgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastSgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+    if (temp_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer' is null for CLBlastSgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastSgemmWithTempBuffer(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%f, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, beta=%f, c_buffer=%p, c_offset=%ld, c_ld=%ld, queue=%p, event=%p, temp_buffer=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    float alpha_native = 0.0f;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    float beta_native = 0.0f;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+    cl_mem temp_buffer_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    alpha_native = (float)alpha;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    beta_native = (float)beta;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, temp_buffer, temp_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastSgemmWithTempBuffer(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native, temp_buffer_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // beta is primitive
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // temp_buffer is a read-only native pointer
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDgemmWithTempBufferNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jdouble alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jdouble beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event, jobject temp_buffer)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastDgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastDgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    // beta is primitive
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastDgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastDgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+    if (temp_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer' is null for CLBlastDgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastDgemmWithTempBuffer(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%lf, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, beta=%lf, c_buffer=%p, c_offset=%ld, c_ld=%ld, queue=%p, event=%p, temp_buffer=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    double alpha_native = 0.0;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    double beta_native = 0.0;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+    cl_mem temp_buffer_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    alpha_native = (double)alpha;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    beta_native = (double)beta;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, temp_buffer, temp_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastDgemmWithTempBuffer(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native, temp_buffer_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // alpha is primitive
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    // beta is primitive
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // temp_buffer is a read-only native pointer
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCgemmWithTempBufferNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jfloatArray alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jfloatArray beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event, jobject temp_buffer)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastCgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastCgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastCgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    if (beta == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'beta' is null for CLBlastCgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastCgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastCgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+    if (temp_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer' is null for CLBlastCgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastCgemmWithTempBuffer(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%p, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, beta=%p, c_buffer=%p, c_offset=%ld, c_ld=%ld, queue=%p, event=%p, temp_buffer=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    cl_float2 alpha_native;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    cl_float2 beta_native;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+    cl_mem temp_buffer_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    if (!initNative(env, beta, beta_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, temp_buffer, temp_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastCgemmWithTempBuffer(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native, temp_buffer_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    if (!releaseNative(env, beta_native, beta, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // temp_buffer is a read-only native pointer
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZgemmWithTempBufferNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jdoubleArray alpha, jobject a_buffer, jlong a_offset, jlong a_ld, jobject b_buffer, jlong b_offset, jlong b_ld, jdoubleArray beta, jobject c_buffer, jlong c_offset, jlong c_ld, jobject queue, jobject event, jobject temp_buffer)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (alpha == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'alpha' is null for CLBlastZgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (a_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'a_buffer' is null for CLBlastZgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // a_offset is primitive
+    // a_ld is primitive
+    if (b_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'b_buffer' is null for CLBlastZgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // b_offset is primitive
+    // b_ld is primitive
+    if (beta == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'beta' is null for CLBlastZgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (c_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'c_buffer' is null for CLBlastZgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastZgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+    if (temp_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer' is null for CLBlastZgemmWithTempBuffer");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastZgemmWithTempBuffer(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, alpha=%p, a_buffer=%p, a_offset=%ld, a_ld=%ld, b_buffer=%p, b_offset=%ld, b_ld=%ld, beta=%p, c_buffer=%p, c_offset=%ld, c_ld=%ld, queue=%p, event=%p, temp_buffer=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, alpha, a_buffer, a_offset, a_ld, b_buffer, b_offset, b_ld, beta, c_buffer, c_offset, c_ld, queue, event, temp_buffer);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    cl_double2 alpha_native;
+    cl_mem a_buffer_native = nullptr;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    cl_mem b_buffer_native = nullptr;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    cl_double2 beta_native;
+    cl_mem c_buffer_native = nullptr;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+    cl_mem temp_buffer_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    if (!initNative(env, alpha, alpha_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, a_buffer, a_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    if (!initNative(env, b_buffer, b_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    if (!initNative(env, beta, beta_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, c_buffer, c_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, temp_buffer, temp_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastZgemmWithTempBuffer(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, alpha_native, a_buffer_native, a_offset_native, a_ld_native, b_buffer_native, b_offset_native, b_ld_native, beta_native, c_buffer_native, c_offset_native, c_ld_native, queue_native, event_native, temp_buffer_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    if (!releaseNative(env, alpha_native, alpha, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // a_buffer is a read-only native pointer
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_buffer is a read-only native pointer
+    // b_offset is primitive
+    // b_ld is primitive
+    if (!releaseNative(env, beta_native, beta, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // c_buffer is a read-only native pointer
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    // temp_buffer is a read-only native pointer
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+// =================================================================================================
+// Retrieves the required size of the temporary buffer for the GEMM kernel: SGEMM/DGEMM/CGEMM/ZGEMM/HGEMM (optional)
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSGemmTempBufferSizeNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jlong a_offset, jlong a_ld, jlong b_offset, jlong b_ld, jlong c_offset, jlong c_ld, jobject queue, jlongArray temp_buffer_size)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastSGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (temp_buffer_size == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer_size' is null for CLBlastSGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastSGemmTempBufferSize(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, a_offset=%ld, a_ld=%ld, b_offset=%ld, b_ld=%ld, c_offset=%ld, c_ld=%ld, queue=%p, temp_buffer_size=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    size_t * temp_buffer_size_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, temp_buffer_size, temp_buffer_size_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastSGemmTempBufferSize(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, a_offset_native, a_ld_native, b_offset_native, b_ld_native, c_offset_native, c_ld_native, queue_native, temp_buffer_size_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative_size_t(env, temp_buffer_size_native, temp_buffer_size, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDGemmTempBufferSizeNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jlong a_offset, jlong a_ld, jlong b_offset, jlong b_ld, jlong c_offset, jlong c_ld, jobject queue, jlongArray temp_buffer_size)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastDGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (temp_buffer_size == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer_size' is null for CLBlastDGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastDGemmTempBufferSize(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, a_offset=%ld, a_ld=%ld, b_offset=%ld, b_ld=%ld, c_offset=%ld, c_ld=%ld, queue=%p, temp_buffer_size=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    size_t * temp_buffer_size_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, temp_buffer_size, temp_buffer_size_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastDGemmTempBufferSize(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, a_offset_native, a_ld_native, b_offset_native, b_ld_native, c_offset_native, c_ld_native, queue_native, temp_buffer_size_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative_size_t(env, temp_buffer_size_native, temp_buffer_size, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCGemmTempBufferSizeNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jlong a_offset, jlong a_ld, jlong b_offset, jlong b_ld, jlong c_offset, jlong c_ld, jobject queue, jlongArray temp_buffer_size)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastCGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (temp_buffer_size == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer_size' is null for CLBlastCGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastCGemmTempBufferSize(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, a_offset=%ld, a_ld=%ld, b_offset=%ld, b_ld=%ld, c_offset=%ld, c_ld=%ld, queue=%p, temp_buffer_size=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    size_t * temp_buffer_size_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, temp_buffer_size, temp_buffer_size_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastCGemmTempBufferSize(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, a_offset_native, a_ld_native, b_offset_native, b_ld_native, c_offset_native, c_ld_native, queue_native, temp_buffer_size_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative_size_t(env, temp_buffer_size_native, temp_buffer_size, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZGemmTempBufferSizeNative(JNIEnv *env, jclass cls, jint layout, jint a_transpose, jint b_transpose, jlong m, jlong n, jlong k, jlong a_offset, jlong a_ld, jlong b_offset, jlong b_ld, jlong c_offset, jlong c_ld, jobject queue, jlongArray temp_buffer_size)
+{
+    // Null-checks for non-primitive arguments
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastZGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    if (temp_buffer_size == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'temp_buffer_size' is null for CLBlastZGemmTempBufferSize");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastZGemmTempBufferSize(layout=%d, a_transpose=%d, b_transpose=%d, m=%ld, n=%ld, k=%ld, a_offset=%ld, a_ld=%ld, b_offset=%ld, b_ld=%ld, c_offset=%ld, c_ld=%ld, queue=%p, temp_buffer_size=%p)\n",
+        layout, a_transpose, b_transpose, m, n, k, a_offset, a_ld, b_offset, b_ld, c_offset, c_ld, queue, temp_buffer_size);
+
+    // Native variable declarations
+    CLBlastLayout layout_native;
+    CLBlastTranspose a_transpose_native;
+    CLBlastTranspose b_transpose_native;
+    size_t m_native = 0;
+    size_t n_native = 0;
+    size_t k_native = 0;
+    size_t a_offset_native = 0;
+    size_t a_ld_native = 0;
+    size_t b_offset_native = 0;
+    size_t b_ld_native = 0;
+    size_t c_offset_native = 0;
+    size_t c_ld_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    size_t * temp_buffer_size_native = nullptr;
+
+    // Obtain native variable values
+    layout_native = (CLBlastLayout)layout;
+    a_transpose_native = (CLBlastTranspose)a_transpose;
+    b_transpose_native = (CLBlastTranspose)b_transpose;
+    m_native = (size_t)m;
+    n_native = (size_t)n;
+    k_native = (size_t)k;
+    a_offset_native = (size_t)a_offset;
+    a_ld_native = (size_t)a_ld;
+    b_offset_native = (size_t)b_offset;
+    b_ld_native = (size_t)b_ld;
+    c_offset_native = (size_t)c_offset;
+    c_ld_native = (size_t)c_ld;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative_size_t(env, temp_buffer_size, temp_buffer_size_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastZGemmTempBufferSize(layout_native, a_transpose_native, b_transpose_native, m_native, n_native, k_native, a_offset_native, a_ld_native, b_offset_native, b_ld_native, c_offset_native, c_ld_native, queue_native, temp_buffer_size_native);
+
+    // Write back native variable values
+    // layout is primitive
+    // a_transpose is primitive
+    // b_transpose is primitive
+    // m is primitive
+    // n is primitive
+    // k is primitive
+    // a_offset is primitive
+    // a_ld is primitive
+    // b_offset is primitive
+    // b_ld is primitive
+    // c_offset is primitive
+    // c_ld is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative_size_t(env, temp_buffer_size_native, temp_buffer_size, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Return the result
     jint jniResult = (jint)jniResult_native;
