@@ -14523,9 +14523,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZomatcopyNative(JNIEnv
 }
 
 // Im2col function (non-BLAS function): SIM2COL/DIM2COL/CIM2COL/ZIM2COL/HIM2COL
-JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSim2colNative(JNIEnv *env, jclass cls, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSim2colNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14557,10 +14558,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSim2colNative(JNIEnv *
     // event may be nullptr
 
     // Log message
-    Logger::log(LOG_TRACE, "Executing CLBlastSim2col(channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
-        channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
+    Logger::log(LOG_TRACE, "Executing CLBlastSim2col(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
 
     // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
     size_t channels_native = 0;
     size_t height_native = 0;
     size_t width_native = 0;
@@ -14580,6 +14582,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSim2colNative(JNIEnv *
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
     channels_native = (size_t)channels;
     height_native = (size_t)height;
     width_native = (size_t)width;
@@ -14599,9 +14602,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSim2colNative(JNIEnv *
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    CLBlastStatusCode jniResult_native = CLBlastSim2col(channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastSim2col(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
 
     // Write back native variable values
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14625,9 +14629,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSim2colNative(JNIEnv *
     return jniResult;
 }
 
-JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDim2colNative(JNIEnv *env, jclass cls, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDim2colNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14659,10 +14664,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDim2colNative(JNIEnv *
     // event may be nullptr
 
     // Log message
-    Logger::log(LOG_TRACE, "Executing CLBlastDim2col(channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
-        channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
+    Logger::log(LOG_TRACE, "Executing CLBlastDim2col(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
 
     // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
     size_t channels_native = 0;
     size_t height_native = 0;
     size_t width_native = 0;
@@ -14682,6 +14688,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDim2colNative(JNIEnv *
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
     channels_native = (size_t)channels;
     height_native = (size_t)height;
     width_native = (size_t)width;
@@ -14701,9 +14708,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDim2colNative(JNIEnv *
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    CLBlastStatusCode jniResult_native = CLBlastDim2col(channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastDim2col(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
 
     // Write back native variable values
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14727,9 +14735,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDim2colNative(JNIEnv *
     return jniResult;
 }
 
-JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCim2colNative(JNIEnv *env, jclass cls, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCim2colNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14761,10 +14770,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCim2colNative(JNIEnv *
     // event may be nullptr
 
     // Log message
-    Logger::log(LOG_TRACE, "Executing CLBlastCim2col(channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
-        channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
+    Logger::log(LOG_TRACE, "Executing CLBlastCim2col(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
 
     // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
     size_t channels_native = 0;
     size_t height_native = 0;
     size_t width_native = 0;
@@ -14784,6 +14794,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCim2colNative(JNIEnv *
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
     channels_native = (size_t)channels;
     height_native = (size_t)height;
     width_native = (size_t)width;
@@ -14803,9 +14814,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCim2colNative(JNIEnv *
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    CLBlastStatusCode jniResult_native = CLBlastCim2col(channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastCim2col(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
 
     // Write back native variable values
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14829,9 +14841,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCim2colNative(JNIEnv *
     return jniResult;
 }
 
-JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZim2colNative(JNIEnv *env, jclass cls, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZim2colNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject im_buffer, jlong im_offset, jobject col_buffer, jlong col_offset, jobject queue, jobject event)
 {
     // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14863,10 +14876,11 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZim2colNative(JNIEnv *
     // event may be nullptr
 
     // Log message
-    Logger::log(LOG_TRACE, "Executing CLBlastZim2col(channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
-        channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
+    Logger::log(LOG_TRACE, "Executing CLBlastZim2col(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, im_buffer=%p, im_offset=%ld, col_buffer=%p, col_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, im_buffer, im_offset, col_buffer, col_offset, queue, event);
 
     // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
     size_t channels_native = 0;
     size_t height_native = 0;
     size_t width_native = 0;
@@ -14886,6 +14900,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZim2colNative(JNIEnv *
     cl_event * event_native = nullptr;
 
     // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
     channels_native = (size_t)channels;
     height_native = (size_t)height;
     width_native = (size_t)width;
@@ -14905,9 +14920,10 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZim2colNative(JNIEnv *
     if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
     // Native function call
-    CLBlastStatusCode jniResult_native = CLBlastZim2col(channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
+    CLBlastStatusCode jniResult_native = CLBlastZim2col(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, im_buffer_native, im_offset_native, col_buffer_native, col_offset_native, queue_native, event_native);
 
     // Write back native variable values
+    // kernel_mode is primitive
     // channels is primitive
     // height is primitive
     // width is primitive
@@ -14923,6 +14939,684 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZim2colNative(JNIEnv *
     // im_offset is primitive
     // col_buffer is a read-only native pointer
     // col_offset is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+// Col2im function (non-BLAS function): SCOL2IM/DCOL2IM/CCOL2IM/ZCOL2IM/HCOL2IM
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastScol2imNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject col_buffer, jlong col_offset, jobject im_buffer, jlong im_offset, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    if (col_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'col_buffer' is null for CLBlastScol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // col_offset is primitive
+    if (im_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'im_buffer' is null for CLBlastScol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // im_offset is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastScol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastScol2im(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, col_buffer=%p, col_offset=%ld, im_buffer=%p, im_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, col_buffer, col_offset, im_buffer, im_offset, queue, event);
+
+    // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
+    size_t channels_native = 0;
+    size_t height_native = 0;
+    size_t width_native = 0;
+    size_t kernel_h_native = 0;
+    size_t kernel_w_native = 0;
+    size_t pad_h_native = 0;
+    size_t pad_w_native = 0;
+    size_t stride_h_native = 0;
+    size_t stride_w_native = 0;
+    size_t dilation_h_native = 0;
+    size_t dilation_w_native = 0;
+    cl_mem col_buffer_native = nullptr;
+    size_t col_offset_native = 0;
+    cl_mem im_buffer_native = nullptr;
+    size_t im_offset_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
+    channels_native = (size_t)channels;
+    height_native = (size_t)height;
+    width_native = (size_t)width;
+    kernel_h_native = (size_t)kernel_h;
+    kernel_w_native = (size_t)kernel_w;
+    pad_h_native = (size_t)pad_h;
+    pad_w_native = (size_t)pad_w;
+    stride_h_native = (size_t)stride_h;
+    stride_w_native = (size_t)stride_w;
+    dilation_h_native = (size_t)dilation_h;
+    dilation_w_native = (size_t)dilation_w;
+    if (!initNative(env, col_buffer, col_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    col_offset_native = (size_t)col_offset;
+    if (!initNative(env, im_buffer, im_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    im_offset_native = (size_t)im_offset;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastScol2im(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, col_buffer_native, col_offset_native, im_buffer_native, im_offset_native, queue_native, event_native);
+
+    // Write back native variable values
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // col_buffer is a read-only native pointer
+    // col_offset is primitive
+    // im_buffer is a read-only native pointer
+    // im_offset is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDcol2imNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject col_buffer, jlong col_offset, jobject im_buffer, jlong im_offset, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    if (col_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'col_buffer' is null for CLBlastDcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // col_offset is primitive
+    if (im_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'im_buffer' is null for CLBlastDcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // im_offset is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastDcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastDcol2im(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, col_buffer=%p, col_offset=%ld, im_buffer=%p, im_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, col_buffer, col_offset, im_buffer, im_offset, queue, event);
+
+    // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
+    size_t channels_native = 0;
+    size_t height_native = 0;
+    size_t width_native = 0;
+    size_t kernel_h_native = 0;
+    size_t kernel_w_native = 0;
+    size_t pad_h_native = 0;
+    size_t pad_w_native = 0;
+    size_t stride_h_native = 0;
+    size_t stride_w_native = 0;
+    size_t dilation_h_native = 0;
+    size_t dilation_w_native = 0;
+    cl_mem col_buffer_native = nullptr;
+    size_t col_offset_native = 0;
+    cl_mem im_buffer_native = nullptr;
+    size_t im_offset_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
+    channels_native = (size_t)channels;
+    height_native = (size_t)height;
+    width_native = (size_t)width;
+    kernel_h_native = (size_t)kernel_h;
+    kernel_w_native = (size_t)kernel_w;
+    pad_h_native = (size_t)pad_h;
+    pad_w_native = (size_t)pad_w;
+    stride_h_native = (size_t)stride_h;
+    stride_w_native = (size_t)stride_w;
+    dilation_h_native = (size_t)dilation_h;
+    dilation_w_native = (size_t)dilation_w;
+    if (!initNative(env, col_buffer, col_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    col_offset_native = (size_t)col_offset;
+    if (!initNative(env, im_buffer, im_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    im_offset_native = (size_t)im_offset;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastDcol2im(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, col_buffer_native, col_offset_native, im_buffer_native, im_offset_native, queue_native, event_native);
+
+    // Write back native variable values
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // col_buffer is a read-only native pointer
+    // col_offset is primitive
+    // im_buffer is a read-only native pointer
+    // im_offset is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastCcol2imNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject col_buffer, jlong col_offset, jobject im_buffer, jlong im_offset, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    if (col_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'col_buffer' is null for CLBlastCcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // col_offset is primitive
+    if (im_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'im_buffer' is null for CLBlastCcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // im_offset is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastCcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastCcol2im(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, col_buffer=%p, col_offset=%ld, im_buffer=%p, im_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, col_buffer, col_offset, im_buffer, im_offset, queue, event);
+
+    // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
+    size_t channels_native = 0;
+    size_t height_native = 0;
+    size_t width_native = 0;
+    size_t kernel_h_native = 0;
+    size_t kernel_w_native = 0;
+    size_t pad_h_native = 0;
+    size_t pad_w_native = 0;
+    size_t stride_h_native = 0;
+    size_t stride_w_native = 0;
+    size_t dilation_h_native = 0;
+    size_t dilation_w_native = 0;
+    cl_mem col_buffer_native = nullptr;
+    size_t col_offset_native = 0;
+    cl_mem im_buffer_native = nullptr;
+    size_t im_offset_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
+    channels_native = (size_t)channels;
+    height_native = (size_t)height;
+    width_native = (size_t)width;
+    kernel_h_native = (size_t)kernel_h;
+    kernel_w_native = (size_t)kernel_w;
+    pad_h_native = (size_t)pad_h;
+    pad_w_native = (size_t)pad_w;
+    stride_h_native = (size_t)stride_h;
+    stride_w_native = (size_t)stride_w;
+    dilation_h_native = (size_t)dilation_h;
+    dilation_w_native = (size_t)dilation_w;
+    if (!initNative(env, col_buffer, col_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    col_offset_native = (size_t)col_offset;
+    if (!initNative(env, im_buffer, im_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    im_offset_native = (size_t)im_offset;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastCcol2im(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, col_buffer_native, col_offset_native, im_buffer_native, im_offset_native, queue_native, event_native);
+
+    // Write back native variable values
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // col_buffer is a read-only native pointer
+    // col_offset is primitive
+    // im_buffer is a read-only native pointer
+    // im_offset is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastZcol2imNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jobject col_buffer, jlong col_offset, jobject im_buffer, jlong im_offset, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    if (col_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'col_buffer' is null for CLBlastZcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // col_offset is primitive
+    if (im_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'im_buffer' is null for CLBlastZcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // im_offset is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastZcol2im");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastZcol2im(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, col_buffer=%p, col_offset=%ld, im_buffer=%p, im_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, col_buffer, col_offset, im_buffer, im_offset, queue, event);
+
+    // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
+    size_t channels_native = 0;
+    size_t height_native = 0;
+    size_t width_native = 0;
+    size_t kernel_h_native = 0;
+    size_t kernel_w_native = 0;
+    size_t pad_h_native = 0;
+    size_t pad_w_native = 0;
+    size_t stride_h_native = 0;
+    size_t stride_w_native = 0;
+    size_t dilation_h_native = 0;
+    size_t dilation_w_native = 0;
+    cl_mem col_buffer_native = nullptr;
+    size_t col_offset_native = 0;
+    cl_mem im_buffer_native = nullptr;
+    size_t im_offset_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
+    channels_native = (size_t)channels;
+    height_native = (size_t)height;
+    width_native = (size_t)width;
+    kernel_h_native = (size_t)kernel_h;
+    kernel_w_native = (size_t)kernel_w;
+    pad_h_native = (size_t)pad_h;
+    pad_w_native = (size_t)pad_w;
+    stride_h_native = (size_t)stride_h;
+    stride_w_native = (size_t)stride_w;
+    dilation_h_native = (size_t)dilation_h;
+    dilation_w_native = (size_t)dilation_w;
+    if (!initNative(env, col_buffer, col_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    col_offset_native = (size_t)col_offset;
+    if (!initNative(env, im_buffer, im_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    im_offset_native = (size_t)im_offset;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastZcol2im(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, col_buffer_native, col_offset_native, im_buffer_native, im_offset_native, queue_native, event_native);
+
+    // Write back native variable values
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // col_buffer is a read-only native pointer
+    // col_offset is primitive
+    // im_buffer is a read-only native pointer
+    // im_offset is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+// Batched convolution as GEMM (non-BLAS function): SCONVGEMM/DCONVGEMM/HCONVGEMM
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastSconvgemmNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jlong num_kernels, jlong batch_count, jobject im_buffer, jlong im_offset, jobject kernel_buffer, jlong kernel_offset, jobject result_buffer, jlong result_offset, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // num_kernels is primitive
+    // batch_count is primitive
+    if (im_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'im_buffer' is null for CLBlastSconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // im_offset is primitive
+    if (kernel_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'kernel_buffer' is null for CLBlastSconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // kernel_offset is primitive
+    if (result_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'result_buffer' is null for CLBlastSconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // result_offset is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastSconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastSconvgemm(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, num_kernels=%ld, batch_count=%ld, im_buffer=%p, im_offset=%ld, kernel_buffer=%p, kernel_offset=%ld, result_buffer=%p, result_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, num_kernels, batch_count, im_buffer, im_offset, kernel_buffer, kernel_offset, result_buffer, result_offset, queue, event);
+
+    // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
+    size_t channels_native = 0;
+    size_t height_native = 0;
+    size_t width_native = 0;
+    size_t kernel_h_native = 0;
+    size_t kernel_w_native = 0;
+    size_t pad_h_native = 0;
+    size_t pad_w_native = 0;
+    size_t stride_h_native = 0;
+    size_t stride_w_native = 0;
+    size_t dilation_h_native = 0;
+    size_t dilation_w_native = 0;
+    size_t num_kernels_native = 0;
+    size_t batch_count_native = 0;
+    cl_mem im_buffer_native = nullptr;
+    size_t im_offset_native = 0;
+    cl_mem kernel_buffer_native = nullptr;
+    size_t kernel_offset_native = 0;
+    cl_mem result_buffer_native = nullptr;
+    size_t result_offset_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
+    channels_native = (size_t)channels;
+    height_native = (size_t)height;
+    width_native = (size_t)width;
+    kernel_h_native = (size_t)kernel_h;
+    kernel_w_native = (size_t)kernel_w;
+    pad_h_native = (size_t)pad_h;
+    pad_w_native = (size_t)pad_w;
+    stride_h_native = (size_t)stride_h;
+    stride_w_native = (size_t)stride_w;
+    dilation_h_native = (size_t)dilation_h;
+    dilation_w_native = (size_t)dilation_w;
+    num_kernels_native = (size_t)num_kernels;
+    batch_count_native = (size_t)batch_count;
+    if (!initNative(env, im_buffer, im_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    im_offset_native = (size_t)im_offset;
+    if (!initNative(env, kernel_buffer, kernel_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    kernel_offset_native = (size_t)kernel_offset;
+    if (!initNative(env, result_buffer, result_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    result_offset_native = (size_t)result_offset;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastSconvgemm(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, num_kernels_native, batch_count_native, im_buffer_native, im_offset_native, kernel_buffer_native, kernel_offset_native, result_buffer_native, result_offset_native, queue_native, event_native);
+
+    // Write back native variable values
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // num_kernels is primitive
+    // batch_count is primitive
+    // im_buffer is a read-only native pointer
+    // im_offset is primitive
+    // kernel_buffer is a read-only native pointer
+    // kernel_offset is primitive
+    // result_buffer is a read-only native pointer
+    // result_offset is primitive
+    // queue is a read-only native pointer
+    if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
+
+JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastDconvgemmNative(JNIEnv *env, jclass cls, jint kernel_mode, jlong channels, jlong height, jlong width, jlong kernel_h, jlong kernel_w, jlong pad_h, jlong pad_w, jlong stride_h, jlong stride_w, jlong dilation_h, jlong dilation_w, jlong num_kernels, jlong batch_count, jobject im_buffer, jlong im_offset, jobject kernel_buffer, jlong kernel_offset, jobject result_buffer, jlong result_offset, jobject queue, jobject event)
+{
+    // Null-checks for non-primitive arguments
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // num_kernels is primitive
+    // batch_count is primitive
+    if (im_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'im_buffer' is null for CLBlastDconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // im_offset is primitive
+    if (kernel_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'kernel_buffer' is null for CLBlastDconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // kernel_offset is primitive
+    if (result_buffer == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'result_buffer' is null for CLBlastDconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // result_offset is primitive
+    if (queue == nullptr)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'queue' is null for CLBlastDconvgemm");
+        return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    }
+    // event may be nullptr
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing CLBlastDconvgemm(kernel_mode=%d, channels=%ld, height=%ld, width=%ld, kernel_h=%ld, kernel_w=%ld, pad_h=%ld, pad_w=%ld, stride_h=%ld, stride_w=%ld, dilation_h=%ld, dilation_w=%ld, num_kernels=%ld, batch_count=%ld, im_buffer=%p, im_offset=%ld, kernel_buffer=%p, kernel_offset=%ld, result_buffer=%p, result_offset=%ld, queue=%p, event=%p)\n",
+        kernel_mode, channels, height, width, kernel_h, kernel_w, pad_h, pad_w, stride_h, stride_w, dilation_h, dilation_w, num_kernels, batch_count, im_buffer, im_offset, kernel_buffer, kernel_offset, result_buffer, result_offset, queue, event);
+
+    // Native variable declarations
+    CLBlastKernelMode kernel_mode_native;
+    size_t channels_native = 0;
+    size_t height_native = 0;
+    size_t width_native = 0;
+    size_t kernel_h_native = 0;
+    size_t kernel_w_native = 0;
+    size_t pad_h_native = 0;
+    size_t pad_w_native = 0;
+    size_t stride_h_native = 0;
+    size_t stride_w_native = 0;
+    size_t dilation_h_native = 0;
+    size_t dilation_w_native = 0;
+    size_t num_kernels_native = 0;
+    size_t batch_count_native = 0;
+    cl_mem im_buffer_native = nullptr;
+    size_t im_offset_native = 0;
+    cl_mem kernel_buffer_native = nullptr;
+    size_t kernel_offset_native = 0;
+    cl_mem result_buffer_native = nullptr;
+    size_t result_offset_native = 0;
+    cl_command_queue * queue_native = nullptr;
+    cl_event * event_native = nullptr;
+
+    // Obtain native variable values
+    kernel_mode_native = (CLBlastKernelMode)kernel_mode;
+    channels_native = (size_t)channels;
+    height_native = (size_t)height;
+    width_native = (size_t)width;
+    kernel_h_native = (size_t)kernel_h;
+    kernel_w_native = (size_t)kernel_w;
+    pad_h_native = (size_t)pad_h;
+    pad_w_native = (size_t)pad_w;
+    stride_h_native = (size_t)stride_h;
+    stride_w_native = (size_t)stride_w;
+    dilation_h_native = (size_t)dilation_h;
+    dilation_w_native = (size_t)dilation_w;
+    num_kernels_native = (size_t)num_kernels;
+    batch_count_native = (size_t)batch_count;
+    if (!initNative(env, im_buffer, im_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    im_offset_native = (size_t)im_offset;
+    if (!initNative(env, kernel_buffer, kernel_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    kernel_offset_native = (size_t)kernel_offset;
+    if (!initNative(env, result_buffer, result_buffer_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    result_offset_native = (size_t)result_offset;
+    if (!initNative(env, queue, queue_native, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+    if (!initNative(env, event, event_native, false)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
+
+    // Native function call
+    CLBlastStatusCode jniResult_native = CLBlastDconvgemm(kernel_mode_native, channels_native, height_native, width_native, kernel_h_native, kernel_w_native, pad_h_native, pad_w_native, stride_h_native, stride_w_native, dilation_h_native, dilation_w_native, num_kernels_native, batch_count_native, im_buffer_native, im_offset_native, kernel_buffer_native, kernel_offset_native, result_buffer_native, result_offset_native, queue_native, event_native);
+
+    // Write back native variable values
+    // kernel_mode is primitive
+    // channels is primitive
+    // height is primitive
+    // width is primitive
+    // kernel_h is primitive
+    // kernel_w is primitive
+    // pad_h is primitive
+    // pad_w is primitive
+    // stride_h is primitive
+    // stride_w is primitive
+    // dilation_h is primitive
+    // dilation_w is primitive
+    // num_kernels is primitive
+    // batch_count is primitive
+    // im_buffer is a read-only native pointer
+    // im_offset is primitive
+    // kernel_buffer is a read-only native pointer
+    // kernel_offset is primitive
+    // result_buffer is a read-only native pointer
+    // result_offset is primitive
     // queue is a read-only native pointer
     if (!releaseNative(env, event_native, event, true)) return JOCL_BLAST_STATUS_INTERNAL_ERROR;
 
@@ -17346,6 +18040,7 @@ JNIEXPORT jint JNICALL Java_org_jocl_blast_CLBlast_CLBlastOverrideParametersNati
     jint jniResult = (jint)jniResult_native;
     return jniResult;
 }
+
 
 
 
