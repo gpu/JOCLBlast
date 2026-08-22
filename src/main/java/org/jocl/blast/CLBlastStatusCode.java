@@ -221,7 +221,10 @@ public class CLBlastStatusCode
     public static final int CLBlastInsufficientMemoryY = -1007;
     
     // Custom additional status codes for CLBlast
-    
+    /**
+     * Temporary buffer provided to GEMM routine is too small
+     */
+    public static final int CLBlastInsufficientMemoryTemp = -2050;
     /**
      * The batch count needs to be positive
      */
@@ -266,6 +269,18 @@ public class CLBlastStatusCode
      * A catch-all error code representing an unexpected exception
      */
     public static final int CLBlastUnexpectedError = -2039;
+    /**
+     * Vector Z is not a valid OpenCL buffer
+     */
+    public static final int CLBlastInvalidVectorZ = -2038;
+    /**
+     * Increment of vector Z cannot be zero
+     */
+    public static final int CLBlastInvalidIncrementZ = -2037;
+    /**
+     * Vector Z's OpenCL buffer is too small
+     */
+    public static final int CLBlastInsufficientMemoryZ = -2036;
 
     /**
      * Private constructor to prevent instantiation
@@ -330,6 +345,7 @@ public class CLBlastStatusCode
             case CLBlastInsufficientMemoryC: return "CLBlastInsufficientMemoryC";
             case CLBlastInsufficientMemoryX: return "CLBlastInsufficientMemoryX";
             case CLBlastInsufficientMemoryY: return "CLBlastInsufficientMemoryY";
+            case CLBlastInsufficientMemoryTemp: return "CLBlastInsufficientMemoryTemp";
             case CLBlastInvalidBatchCount: return "CLBlastInvalidBatchCount";
             case CLBlastInvalidOverrideKernel: return "CLBlastInvalidOverrideKernel";
             case CLBlastMissingOverrideParameter: return "CLBlastMissingOverrideParameter";
@@ -341,6 +357,9 @@ public class CLBlastStatusCode
             case CLBlastDatabaseError: return "CLBlastDatabaseError";
             case CLBlastUnknownError: return "CLBlastUnknownError";
             case CLBlastUnexpectedError: return "CLBlastUnexpectedError";
+            case CLBlastInvalidVectorZ: return "CLBlastInvalidVectorZ";
+            case CLBlastInvalidIncrementZ: return "CLBlastInvalidIncrementZ";
+            case CLBlastInsufficientMemoryZ: return "CLBlastInsufficientMemoryZ";
         }
         return "INVALID CLBlastStatusCode: "+n;
     }
